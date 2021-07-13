@@ -8,6 +8,7 @@ const MyInfo = () => (
         <li>Bizzo (()3</li>
         <li>St. Hurg 9Teene</li>
         <li>The Death Pits of Zultron</li>
+        <li>FOUR hUNDREAD SEASONS</li>
       </ol>
     </React.Fragment>
   )
