@@ -12,5 +12,4 @@ const MyInfo = () => (
     </React.Fragment>
   )
 
-  
 export default MyInfo
