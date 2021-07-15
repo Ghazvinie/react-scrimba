@@ -1,7 +1,19 @@
-h1 {
-  color: red;
+.checkboxes-container {
+  display: flex;
+  flex-direction: column;
 }
-ol {
-  background-color: blue;
-  color: white;
+.checkbox-item {
+  border-style: solid;
+  border-width: 0.1px;
+  margin: 10px 10px;
+  padding: 10px 10px;
+  display: flex;
+  width: fit-content;
+  margin-left:auto;
+  margin-right:auto;
+  width:50%;
+}
+.checkbox-single-container {
+  display: flex;
+  margin-left: auto;
 }
