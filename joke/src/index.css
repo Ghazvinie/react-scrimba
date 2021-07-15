@@ -17,27 +17,31 @@ body{
   font-family: sans-serif;
   word-spacing: 0.1em;
   letter-spacing: 0.05em;
-  margin: 1rem 1rem;
   padding: 1rem 1rem;
   display: flex;
-  width:50%;
-  align-items: center;
+  width:75%;
   justify-content: center;
-
+  align-items: center;
 }
 .joke-setup, .joke-punchline {
-  display: flex;
   margin: 5px 5px;
   padding: 5px 5px;
+  float: left;
 }
 .joke-setup {
   border-right: 0.1em solid rgba(0, 0, 0, 0.1);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  width: 40%;
 }
 .joke-punchline{
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  width: 40%;
+  height: min-content;
+  float: right;
 }
+
+
 
 p:hover{
   color: rgb(119, 119, 119);
