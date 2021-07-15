@@ -1,12 +1,11 @@
 import React from "react";
-import ToDoItem from './components/ToDoItem';
+import Joke from './components/Joke';
 
-const textData = ['Some Text', 'More Text', 'Extra Text', 'Final Text']
 
 const App = () => {
     return (
-        <div className="todo-items-container">
-            <ToDoItem text={textData} />
+        <div>
+            <Joke />
         </div>
     )
 };
