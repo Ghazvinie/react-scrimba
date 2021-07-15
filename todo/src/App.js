@@ -1,13 +1,14 @@
 import React from "react";
-import Checkbox from './components/Checkbox';
+import ToDoItem from './components/ToDoItem';
 
-const App = () => (
-    <div className="checkboxes-container">
-        <Checkbox text={'Some Text'} />
-        <Checkbox text={'Some Text'} />
-        <Checkbox text={'Some Text'} />
-        <Checkbox text={'Some Text'} />
+const App = () => {
+    return(
+    <div className="todo-items-container">
+        <ToDoItem text={'Some Text'} />
+        <ToDoItem text={'Some Text'} />
+        <ToDoItem text={'Some Text'} />
+        <ToDoItem text={'Some Text'} />
     </div>
-);
+)};
 
 export default App;
