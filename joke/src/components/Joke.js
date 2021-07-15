@@ -4,8 +4,9 @@ const Joke = (props) => {
     let randomJokes = [];
     while (randomJokes.length < 5) {
         const rdmIdx = Math.floor(Math.random() * props.jokes.length);
-        randomJokes.push(props.jokes[rdmIdx]);
-        randomJokes = randomJokes.filter((joke, index) => randomJokes.indexOf(joke) === index);
+        if (randomJokes.indexOf(props.jokes[rdmIdx]) === -1) {
+            randomJokes.push(props.jokes[rdmIdx]);
+        }
     }
     return randomJokes.map(joke => {
         return (
@@ -20,8 +21,7 @@ const Joke = (props) => {
                 </div>
             </div>
         )
-    })
+     })
 }
-
 
 export default Joke;
