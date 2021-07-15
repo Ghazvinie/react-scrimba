@@ -10,7 +10,6 @@ body{
   margin: auto;
   padding: 15px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
-
 }
 .joke-single {
   color: rgb(119, 119, 119);
@@ -40,10 +39,6 @@ body{
   height: min-content;
   float: right;
 }
-
-
-
 p:hover{
   color: rgb(119, 119, 119);
 }
-
