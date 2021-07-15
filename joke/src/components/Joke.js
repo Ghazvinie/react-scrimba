@@ -1,19 +1,25 @@
 import React from 'react';
 
 const Joke = (props) => {
-    return (
-        <div className='joke-container'>
-            <div className='joke-single'>
-                <div className="joke-setup">
-                    <p >Why Did the?</p>
-                </div>
-                <div className="punchline">
-                    <p >The Punchline</p>
+    let randomJokes = [];
+    while (randomJokes.length < 5) {
+        const rdmIdx = Math.floor(Math.random() * props.jokes.length);
+        randomJokes.push(props.jokes[rdmIdx]);
+    }
+    return randomJokes.map(joke => {
+        return (
+            <div className='joke-container'>
+                <div className='joke-single'>
+                    <div className="joke-setup">
+                        <p>{joke.setup}</p>
+                    </div>
+                    <div className="joke-punchline">
+                        <p>{joke.punchline}</p>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    )
+        )
+    })
 }
 
 

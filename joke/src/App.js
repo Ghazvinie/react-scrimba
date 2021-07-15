@@ -1,11 +1,12 @@
 import React from "react";
 import Joke from './components/Joke';
+import jokes from './jokes.json';
 
 
 const App = () => {
     return (
         <div>
-            <Joke />
+            <Joke jokes={jokes} />
         </div>
     )
 };
