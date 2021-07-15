@@ -20,8 +20,8 @@ const Joke = (props) => {
                     </div>
                 </div>
             </div>
-        )
-     })
-}
+        );
+     });
+};
 
 export default Joke;
