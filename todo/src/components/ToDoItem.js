@@ -1,14 +1,14 @@
 import React from 'react';
 
 const ToDoItem = (props) => {
-    return (
+    return props.text.map(text => (
         <div className="todo-item">
-            <p>{props.text}</p>
+            <p>{text}</p>
             <div className="checkbox-single-container">
                 <input type="checkbox" />
             </div>
         </div>
-    );
+    ));
 }
 
 
