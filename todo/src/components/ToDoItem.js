@@ -5,7 +5,7 @@ const ToDoItem = (props) => {
         <div className="todo-item" key={item.id}>
             <p>{item.text}</p>
             <div className="checkbox-single-container">
-                <input type="checkbox" />
+                <input type="checkbox" checked={item.completed} />
             </div>
         </div>
     ));
