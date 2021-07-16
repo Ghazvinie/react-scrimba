@@ -1,12 +1,11 @@
 import React from "react";
 import ToDoItem from './components/ToDoItem';
-
-const textData = ['Some Text', 'More Text', 'Extra Text', 'Final Text']
+import toDoData from './todosData';
 
 const App = () => {
     return (
         <div className="todo-items-container">
-            <ToDoItem text={textData} />
+            <ToDoItem text={toDoData} />
         </div>
     )
 };
