@@ -3,5 +3,19 @@ body{
 }
 
 table {
-  border: 1px solid black;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table, td {
+  border: 0.1rem solid black;
+  border-collapse: collapse;
+}
+
+tr, td {
+  padding: 15px;
+}
+
+td {
+  text-align: left;
 }
