@@ -5,7 +5,7 @@ const Product = (props) => {
         <table key={product.id}>
             <tr>
                 <td>{product.name}</td>
-                <td>{product.price}</td>
+                <td>{product.price.toLocaleString("en-US", { style: "currency", currency: "GBP" })}</td>
                 <td>{product.description}</td>
             </tr>
         </table>
