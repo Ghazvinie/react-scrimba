@@ -2,25 +2,24 @@ import React from 'react';
 
 class ToDoItem extends React.Component {
     constructor(props) {
-        super(props)
+        super()
         this.state = {
-            isChecked: false,
             toDos: props.text
         };
         this.handleClick = this.handleClick.bind(this);
     };
 
-    handleClick(id) {
+    handleClick(id){
         this.setState((prevState) => {
             const updatedToDos = prevState.toDos.map(element => {
                 if (element.id === id) {
                     element.completed = !element.completed;
                 }
-                return element;
+                return element
             });
             return {
                 toDos: updatedToDos
-            }
+            };
         });
     }
 
@@ -30,7 +29,7 @@ class ToDoItem extends React.Component {
                 <div className="todo-item" key={item.id} >
                     <p>{item.text}</p>
                     <div className="checkbox-single-container" >
-                        <input type="checkbox" checked={this.state.isChecked} onChange={() => this.handleClick(item.id)} />
+                        <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
                     </div>
                 </div>
             );
