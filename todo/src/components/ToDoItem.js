@@ -13,7 +13,10 @@ class ToDoItem extends React.Component {
         this.setState((prevState) => {
             const updatedToDos = prevState.toDos.map(element => {
                 if (element.id === id) {
-                    element.completed = !element.completed;
+                    return {
+                        ...element,
+                        completed: !element.completed,
+                    }
                 }
                 return element
             });
