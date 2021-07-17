@@ -6,15 +6,15 @@ class ToDoItem extends React.Component {
         this.state = {
             isChecked: false
         };
+        this.handleClick = this.handleClick.bind(this);
     };
 
     handleClick(e) {
-        this.state.isChecked = false;
+        this.setState({isChecked : true})
     }
 
     render() {
         return this.props.text.map(item => {
-            this.state.isChecked = item.completed;
             return (
                 <div className="todo-item" key={item.id} >
                     <p>{item.text}</p>
