@@ -12,30 +12,29 @@ Given a stateless functional component:
 */
 
 class App extends React.Component {
-    constructor(){
+    constructor() {
         super()
         this.state = {
-            loggedIn : false
-        }
-    }
+            loggedIn: false
+        };
+    };
 
     handleClick = () => {
         this.setState((prevState) => {
             return ({
                 loggedIn: !prevState.loggedIn
-            })
-        })
-    }
+            });
+        });
+    };
     render() {
         return (
             <div className="btn-container">
                 <h1>{this.state.loggedIn ? 'You are logged in' : 'You are logged out'}</h1>
                 <button type="button" onClick={this.handleClick}>{this.state.loggedIn ? 'Log Out' : 'Log In'}</button>
             </div>
-        )
-    }
-
-}
+        );
+    };
+};
 
 
 export default App
