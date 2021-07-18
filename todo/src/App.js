@@ -22,12 +22,10 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {this.state.isLoading ?
-                    <h1>Page is loading...</h1>
-                    : <div className="todo-items-container">
+                {this.state.isLoading ? <h1>Page is loading...</h1> :
+                    <div className="todo-items-container">
                         <ToDoItem text={this.state.toDoData} />
-                    </div>
-                }
+                    </div>}
             </div>
         );
     };
