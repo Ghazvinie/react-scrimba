@@ -5,7 +5,8 @@ class ToDoItem extends React.Component {
         super(props)
         this.state = {
             toDos: props.text,
-            color: 'red'
+            // color: 'red',
+            isLoading: true
         };
         this.handleClick = this.handleClick.bind(this);
     };
@@ -27,15 +28,26 @@ class ToDoItem extends React.Component {
         });
     }
 
-    componentDidUpdate(prevProps, prevState){
-      prevState.toDos.map((element, idx) => {
-          if (element.completed !== this.state.toDos[idx].completed){
-              this.setState({color: this.state.color === 'green' ? 'red' : 'green'})
-          }
-      })
+    // componentDidUpdate(prevProps, prevState){
+    //   prevState.toDos.map((element, idx) => {
+    //       if (element.completed !== this.state.toDos[idx].completed){
+    //           this.setState({color: this.state.color === 'green' ? 'red' : 'green'})
+    //       }
+    //   })
+    // }
+
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({
+                isLoading: false
+            })
+        },2000)
     }
 
     render() {
+        if (this.state.isLoading){
+            return <h1>Please wait while the page loads</h1>
+        }
         return this.state.toDos.map(item => {
             return (
                 <div className="todo-item" key={item.id} >
