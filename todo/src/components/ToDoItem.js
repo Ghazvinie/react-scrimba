@@ -6,7 +6,6 @@ class ToDoItem extends React.Component {
         this.state = {
             toDos: props.text,
             // color: 'red',
-            isLoading: true
         };
         this.handleClick = this.handleClick.bind(this);
     };
@@ -36,30 +35,20 @@ class ToDoItem extends React.Component {
     //   })
     // }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                isLoading: false
-            })
-        }, 2000)
-    };
+
 
     render() {
         return (
-            <div>
-                <h1>Header</h1>
-                {this.state.isLoading ? <h1>Please wait while the page loads</h1> : this.state.toDos.map(item => {
-                    return (
-                        <div className="todo-item" key={item.id} >
-                            <p style={{ color: this.state.color }}>{item.text}</p>
-                            <div className="checkbox-single-container" >
-                                <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
-                            </div>
-                        </div>
-                    );
-                })}
-                <h1>Footer</h1>
-            </div>
+            this.state.toDos.map(item => {
+            return (
+                <div className="todo-item" key={item.id} >
+                    <p style={{ color: this.state.color }}>{item.text}</p>
+                    <div className="checkbox-single-container" >
+                        <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
+                    </div>
+                </div>
+            );
+        })
         );
     };
 }

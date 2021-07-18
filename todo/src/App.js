@@ -2,20 +2,35 @@ import React from "react";
 import ToDoItem from './components/ToDoItem';
 import toDoData from './todosData';
 
-class App  extends React.Component {
+class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            toDoData: toDoData
+            toDoData: toDoData,
+            isLoading: true
         };
     };
-    render () {
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                isLoading: false
+            })
+        }, 2000)
+    };
+
+    render() {
         return (
-            <div className="todo-items-container">
-                <ToDoItem text={this.state.toDoData} />
+            <div>
+                {this.state.isLoading ?
+                    <h1>Page is loading...</h1>
+                    : <div className="todo-items-container">
+                        <ToDoItem text={this.state.toDoData} />
+                    </div>
+                }
             </div>
-        )
-    }
+        );
+    };
 }
 
 export default App;
