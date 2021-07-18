@@ -30,7 +30,7 @@ class ToDoItem extends React.Component {
     componentDidUpdate(prevProps, prevState){
       prevState.toDos.map((element, idx) => {
           if (element.completed !== this.state.toDos[idx].completed){
-              this.setState({color: 'green'})
+              this.setState({color: this.state.color === 'green' ? 'red' : 'green'})
           }
       })
     }
