@@ -11,7 +11,7 @@ class ToDoItem extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     };
 
-    handleClick(id){
+    handleClick(id) {
         this.setState((prevState) => {
             const updatedToDos = prevState.toDos.map(element => {
                 if (element.id === id) {
@@ -36,29 +36,33 @@ class ToDoItem extends React.Component {
     //   })
     // }
 
-    componentDidMount(){
+    componentDidMount() {
         setTimeout(() => {
             this.setState({
                 isLoading: false
             })
-        },2000)
-    }
+        }, 2000)
+    };
 
     render() {
-        if (this.state.isLoading){
-            return <h1>Please wait while the page loads</h1>
-        }
-        return this.state.toDos.map(item => {
-            return (
-                <div className="todo-item" key={item.id} >
-                    <p style={{color: this.state.color}}>{item.text}</p>
-                    <div className="checkbox-single-container" >
-                        <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
-                    </div>
-                </div>
-            );
-        });
-    }
+        return (
+            <div>
+                <h1>Header</h1>
+                {this.state.isLoading ? <h1>Please wait while the page loads</h1> : this.state.toDos.map(item => {
+                    return (
+                        <div className="todo-item" key={item.id} >
+                            <p style={{ color: this.state.color }}>{item.text}</p>
+                            <div className="checkbox-single-container" >
+                                <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
+                            </div>
+                        </div>
+                    );
+                })}
+                <h1>Footer</h1>
+            </div>
+        );
+    };
 }
 
 export default ToDoItem;
+
