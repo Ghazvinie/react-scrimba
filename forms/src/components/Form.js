@@ -1,10 +1,9 @@
 import React from 'react';
 
-class Character extends React.Component {
+class Form extends React.Component {
     constructor() {
         super()
         this.state = {
-            character: {},
             isLoading: false,
             firstName: '',
             lastName: '',
@@ -18,17 +17,7 @@ class Character extends React.Component {
         this.handleCheckbox = this.handleCheckbox.bind(this);
     };
 
-    async componentDidMount() {
-        this.setState({ isLoading: true });
 
-        const response = await fetch('https://swapi.dev/api/people/1/');
-        const data = await response.json();
-
-        this.setState({
-            character: data,
-            isLoading: false
-        });
-    };
 
     handleChange(e) {
         const { name, value } = e.target;
@@ -80,4 +69,4 @@ class Character extends React.Component {
     };
 };
 
-export default Character;
+export default Form;
