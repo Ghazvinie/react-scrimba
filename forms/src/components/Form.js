@@ -20,8 +20,15 @@ class Form extends React.Component {
 
 
     handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value })
+        const { name, value, checked } = e.target;
+        // if (e.target.type === 'checkbox'){
+        //     this.setState((prevState) => {
+        //         return { checked: !prevState.checked }
+        //     });
+        //     return;
+        // }
+
+        this.setState({ [[name] ? [name] : checked]: value })
         console.log(`${name} : ${value}`)
     }
 
@@ -42,6 +49,7 @@ class Form extends React.Component {
 
                 {/* <h1>{this.state.isLoading ? 'Page Loading...' : this.state.character.name}</h1> */}
                 <form >
+
                     <label>
                         Name:
                         <input type="text"
@@ -49,6 +57,7 @@ class Form extends React.Component {
                             onChange={this.handleChange}
                             value={this.state.firstName} />
                     </label>
+
                     <label>
                         Last Name:
                         <input type="text"
@@ -62,7 +71,11 @@ class Form extends React.Component {
                         onChange={this.handleChange}
                         name='textarea' />
 
-                    <input type='checkbox' checked={this.state.checked} onChange={this.handleCheckbox} name='checked' />
+                    <input type='checkbox' 
+                    checked={this.state.checked} 
+                    onChange={this.handleChange} 
+                    name='checked' />
+
                 </form>
             </div>
         );
