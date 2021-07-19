@@ -42,10 +42,10 @@ class ToDoItem extends React.Component {
         return (
             this.state.toDos.map(item => {
                 return (
-                    <div className="todo-item" key={item.id} >
+                    <div className="todo-item" key={item.id}>
                         <p style={item.completed ? itemCompletedStyle : null}>{item.text}</p>
-                        <div className="checkbox-single-container" >
-                            <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
+                        <div className="checkbox-single-container">
+                            <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)}/>
                         </div>
                     </div>
                 );
