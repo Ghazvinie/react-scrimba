@@ -1,8 +1,7 @@
 import React from 'react';
 
-
 class Character extends React.Component {
-    constructor(){
+    constructor() {
         super()
         this.state = {
             character: {},
@@ -10,8 +9,8 @@ class Character extends React.Component {
         };
     };
 
-    async componentDidMount(){
-        this.setState({isLoading: true});
+    async componentDidMount() {
+        this.setState({ isLoading: true });
 
         const response = await fetch('https://swapi.dev/api/people/1/');
         const data = await response.json();
@@ -23,14 +22,13 @@ class Character extends React.Component {
         });
     };
 
-
-    render () {
-       return (
-           <div>
-               <h1>{this.state.isLoading ? 'Page Loading...' : this.state.character.name}</h1>
-           </div>
-       )
-    }
-}
+    render() {
+        return (
+            <div>
+                <h1>{this.state.isLoading ? 'Page Loading...' : this.state.character.name}</h1>
+            </div>
+        );
+    };
+};
 
 export default Character;
