@@ -27,7 +27,8 @@ class Character extends React.Component {
     };
 
     handleChange(e) {
-        this.setState({ formValue: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
+        console.log(`${[e.target.name]} : ${e.target.value}`)
     }
 
     handleSubmit(e){
