@@ -38,7 +38,8 @@ class ToDoItem extends React.Component {
         const itemCompletedStyle = {
             color: 'rgba(10, 10, 10, 0.1)',
             textDecoration: 'line-through'
-        }
+        };
+        
         return (
             this.state.toDos.map(item => {
                 return (
