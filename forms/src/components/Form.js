@@ -8,7 +8,8 @@ class Form extends React.Component {
             firstName: '',
             lastName: '',
             textarea: '',
-            checked: false
+            checked: false,
+            radio: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -19,8 +20,9 @@ class Form extends React.Component {
 
     handleChange(e) {
         const { name, value, checked } = e.target;
-        this.setState({ [name] : name === 'checked' ? checked : value });
-        console.log(`${name} : ${value}`);
+
+        this.setState({ [name]: name === 'checked' ? checked : value });
+        // console.log(`${name} : ${value}`);
     }
 
     // handleSubmit(event) {
@@ -56,10 +58,25 @@ class Form extends React.Component {
                         onChange={this.handleChange}
                         name='textarea' />
 
-                    <input type='checkbox' 
-                    checked={this.state.checked} 
-                    onChange={this.handleChange} 
-                    name='checked' />
+                    <input type='checkbox'
+                        checked={this.state.checked}
+                        onChange={this.handleChange}
+                        name='checked' />
+
+                    <input type='radio'
+                        value='this'
+                        checked={this.state.radio === 'this'}
+                        onChange={this.handleChange}
+                        name='radio' />This
+
+                    <input type='radio'
+                        value='that'
+                        checked={this.state.radio === 'that'}
+                        onChange={this.handleChange}
+                        name='radio' />That
+
+
+
 
                 </form>
             </div>
