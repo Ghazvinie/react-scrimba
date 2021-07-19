@@ -13,29 +13,14 @@ class Form extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit(this);
-
-        this.handleCheckbox = this.handleCheckbox.bind(this);
     };
 
 
 
     handleChange(e) {
         const { name, value, checked } = e.target;
-        // if (e.target.type === 'checkbox'){
-        //     this.setState((prevState) => {
-        //         return { checked: !prevState.checked }
-        //     });
-        //     return;
-        // }
-
-        this.setState({ [[name] ? [name] : checked]: value })
-        console.log(`${name} : ${value}`)
-    }
-
-    handleCheckbox() {
-        this.setState((prevState) => {
-            return { checked: !prevState.checked }
-        });
+        this.setState({ [name] : name === 'checked' ? checked : value });
+        console.log(`${name} : ${value}`);
     }
 
     // handleSubmit(event) {
