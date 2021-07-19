@@ -14,10 +14,8 @@ class Form extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit(this);
+        this.handleSubmit = this.handleSubmit(this);
     };
-
-
 
     handleChange(e) {
         const { name, value, checked } = e.target;
@@ -26,17 +24,17 @@ class Form extends React.Component {
         // console.log(`${name} : ${value}`);
     }
 
-    // handleSubmit(event) {
-    //     alert('A name was submitted: ' + this.state.value);
-    //     event.preventDefault();
-    //   }
+    handleSubmit(e) {
+
+console.log('hello')
+      }
 
     render() {
         return (
             <div>
 
                 {/* <h1>{this.state.isLoading ? 'Page Loading...' : this.state.character.name}</h1> */}
-                <form >
+                <form onSubmit={(e) => this.handleSubmit(e)}>
 
                     <label>
                         Name:
@@ -53,7 +51,6 @@ class Form extends React.Component {
                             onChange={this.handleChange}
                             value={this.state.lastName} />
                     </label>
-                    <input type='submit' value='submit' />
 
                     <textarea value={this.state.textarea}
                         onChange={this.handleChange}
@@ -82,6 +79,7 @@ class Form extends React.Component {
                         <option value='three'>Three</option>
                     </select>
 
+                <button>Submit</button>
                 </form>
             </div>
         );
