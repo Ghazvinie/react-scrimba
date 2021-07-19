@@ -9,7 +9,8 @@ class Form extends React.Component {
             lastName: '',
             textarea: '',
             checked: false,
-            radio: ''
+            radio: '',
+            select: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -20,7 +21,7 @@ class Form extends React.Component {
 
     handleChange(e) {
         const { name, value, checked } = e.target;
-
+        console.log(value)
         this.setState({ [name]: name === 'checked' ? checked : value });
         // console.log(`${name} : ${value}`);
     }
@@ -75,8 +76,11 @@ class Form extends React.Component {
                         onChange={this.handleChange}
                         name='radio' />That
 
-
-
+                    <select value={this.state.select} name='select' onChange={this.handleChange}>
+                        <option value='one'>One</option>
+                        <option value='two'>Two</option>
+                        <option value='three'>Three</option>
+                    </select>
 
                 </form>
             </div>
