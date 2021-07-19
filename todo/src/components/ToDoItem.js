@@ -5,7 +5,6 @@ class ToDoItem extends React.Component {
         super(props)
         this.state = {
             toDos: props.text,
-            // color: 'red',
         };
         this.handleClick = this.handleClick.bind(this);
     };
@@ -38,11 +37,15 @@ class ToDoItem extends React.Component {
 
 
     render() {
+        const itemCompletedStyle = {
+            color: 'rgba(10, 10, 10, 0.1)',
+            textDecoration: 'line-through'
+        }
         return (
             this.state.toDos.map(item => {
             return (
                 <div className="todo-item" key={item.id} >
-                    <p style={{ color: this.state.color }}>{item.text}</p>
+                    <p style={item.completed ? itemCompletedStyle : null }>{item.text}</p>
                     <div className="checkbox-single-container" >
                         <input type="checkbox" checked={item.completed} onChange={() => this.handleClick(item.id)} />
                     </div>
