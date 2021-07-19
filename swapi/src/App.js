@@ -1,9 +1,10 @@
 import React from "react";
+import Character from './components/Character';
 
 const App = () => (
     <div>
-hello
+        <Character />
     </div>
-)
+);
 
 export default App;
