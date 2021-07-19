@@ -27,11 +27,12 @@ class Character extends React.Component {
     };
 
     handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value })
-        console.log(`${[e.target.name]} : ${e.target.value}`)
+        const { name, value } = e.target;
+        this.setState({ [name]: value })
+        console.log(`${name} : ${value}`)
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
 
         console.log('Form was submitted' + this.state.value);
 
@@ -42,17 +43,23 @@ class Character extends React.Component {
             <div>
 
                 {/* <h1>{this.state.isLoading ? 'Page Loading...' : this.state.character.name}</h1> */}
-                <form onSubmit={(e)=> this.handleSubmit(e)}>
-                    <label>
-                        Name:
-                        <input type="text" name='firstName' onChange={this.handleChange} />
-                    </label>
-                    <label>
-                        Last Name:
-                        <input type="text" name='lastName' onChange={this.handleChange} />
-                    </label>
-                    <input type='submit' value='submit' />
-                </form>
+                {/* <form onSubmit={(e)=> this.handleSubmit(e)}> */}
+                <label>
+                    Name:
+                    <input type="text"
+                        name='firstName'
+                        onChange={this.handleChange}
+                        value={this.state.firstName} />
+                </label>
+                <label>
+                    Last Name:
+                    <input type="text"
+                        name='lastName'
+                        onChange={this.handleChange}
+                        value={this.state.lastName} />
+                </label>
+                <input type='submit' value='submit' />
+                {/* </form> */}
             </div>
         );
     };
