@@ -107,6 +107,9 @@ class Form extends React.Component {
     constructor() {
         super()
         this.state = {
+            firstName: '',
+            lastName: '',
+            age: '',
             gender: '',
             location: '',
             dietary: {
@@ -120,6 +123,7 @@ class Form extends React.Component {
 
     handleChange(e) {
         const { name, value, checked } = e.target;
+
         if (value === 'Location:') return;
 
         this.setState((prevState) => {
@@ -131,7 +135,7 @@ class Form extends React.Component {
                 };
             }
             return {
-                [name]: name === 'dietary' ? checked : value
+                [name]: value
             };
         });
     }
@@ -140,9 +144,9 @@ class Form extends React.Component {
         return (
             <main>
                 <form>
-                    <input placeholder="First Name" /><br />
-                    <input placeholder="Last Name" /><br />
-                    <input placeholder="Age" /><br />
+                    <input placeholder="First Name" name='firstName' type='text' value={this.state.firstName} onChange={this.handleChange}/><br />
+                    <input placeholder="Last Name" name='lastName' type='text' value={this.state.lastName} onChange={this.handleChange}/><br />
+                    <input placeholder="Age" name='age' type='text' value={this.state.age} onChange={this.handleChange}/><br />
 
                     {/* Create radio buttons for gender here */}
                     <input type='radio'
@@ -191,8 +195,8 @@ class Form extends React.Component {
                 </form>
                 <hr />
                 <h2>Entered information:</h2>
-                <p>Your name: {/* First and last name here */}</p>
-                <p>Your age: {/* Age here */}</p>
+                <p>Your name: {this.state.firstName + ' ' + this.state.lastName}</p>
+                <p>Your age: {this.state.age}</p>
                 <p>Your gender: {this.state.gender}</p>
                 <p>Your destination: {this.state.location === 'Location:' ? '' : this.state.location}</p>
                 <p>
