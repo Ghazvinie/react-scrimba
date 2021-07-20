@@ -168,7 +168,7 @@ class Form extends React.Component {
 
                     {/* Create select box for location here */}
                     <select name='location' value={this.state.location} onChange={this.handleChange}>
-                        <option selected value='Location:'>Location:</option>
+                        <option value='Location:'>Location:</option>
                         <option value='Moon'>Moon</option>
                         <option value='Uranus'>Uranus</option>
                         <option value='The Pub'>The Pub</option>
@@ -201,19 +201,19 @@ class Form extends React.Component {
                 <p>Your age: {this.state.age}</p>
                 <p>Your gender: {this.state.gender}</p>
                 <p>Your destination: {this.state.location === 'Location:' ? '' : this.state.location}</p>
+
+                Your dietary restrictions:
+                {/* Dietary restrictions here, comma separated */}
                 <p>
-                    Your dietary restrictions:
-                    {/* Dietary restrictions here, comma separated */}
-                    <p>
-                        Old Fish: {this.state.dietary.noOldFish === true ? 'Yes' : 'No'}
-                    </p>
-                    <p>
-                        Nails: {this.state.dietary.noNails === true ? 'Yes' : 'No'}
-                    </p>
-                    <p>
-                        Extra Slippers: {this.state.dietary.extraSlippers === true ? 'Yes' : 'No'}
-                    </p>            
+                    Old Fish: {this.state.dietary.noOldFish === true ? 'Yes' : 'No'}
                 </p>
+                <p>
+                    Nails: {this.state.dietary.noNails === true ? 'Yes' : 'No'}
+                </p>
+                <p>
+                    Extra Slippers: {this.state.dietary.extraSlippers === true ? 'Yes' : 'No'}
+                </p>
+
             </main>
         )
     }
