@@ -125,7 +125,7 @@ class Form extends React.Component {
         this.setState((prevState) => {
             if (name === 'dietary') {
                 return {
-                    [name]: {
+                    [name]: { ...prevState.dietary,
                         [value]: checked
                     }
                 };
@@ -199,7 +199,9 @@ class Form extends React.Component {
                     Your dietary restrictions:
                     {/* Dietary restrictions here, comma separated */}
 
-                    {this.state.dietary['No Nails'] === 'true' ? 'No Nails' : ''}
+                    {this.state.dietary['No Old Fish'] === true ? ' No Old Fish,' : ''}
+                    {this.state.dietary['No Nails'] === true ? ' No Nails,' : ''}
+                    {this.state.dietary['Extra Slippers'] === true ? ' Extra Slippers,' : ''}
                 </p>
             </main>
         )
