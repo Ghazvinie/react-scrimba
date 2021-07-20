@@ -1,4 +1,3 @@
-import { thistle } from 'color-name';
 import React from 'react';
 
 // class Form extends React.Component {
