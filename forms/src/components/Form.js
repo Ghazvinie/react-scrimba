@@ -113,24 +113,25 @@ class Form extends React.Component {
             gender: '',
             location: '',
             dietary: {
-                'No Old Fish': false,
-                'No Nails': false,
-                'Extra Slippers': false
+                noOldFish: false,
+                noNails: false,
+                extraSlippers: false
             }
         };
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
-        const { name, value, checked } = e.target;
+        const { name, value, checked, type } = e.target;
 
         if (value === 'Location:') return;
 
         this.setState((prevState) => {
-            if (name === 'dietary') {
+            if (type === 'checkbox') {
                 return {
-                    [name]: { ...prevState.dietary,
-                        [value]: checked
+                    dietary: {
+                        ...prevState.dietary,
+                        [name]: checked
                     }
                 };
             }
@@ -144,24 +145,24 @@ class Form extends React.Component {
         return (
             <main>
                 <form>
-                    <input placeholder="First Name" name='firstName' type='text' value={this.state.firstName} onChange={this.handleChange}/><br />
-                    <input placeholder="Last Name" name='lastName' type='text' value={this.state.lastName} onChange={this.handleChange}/><br />
-                    <input placeholder="Age" name='age' type='text' value={this.state.age} onChange={this.handleChange}/><br />
+                    <input placeholder="First Name" name='firstName' type='text' value={this.state.firstName} onChange={this.handleChange} /><br />
+                    <input placeholder="Last Name" name='lastName' type='text' value={this.state.lastName} onChange={this.handleChange} /><br />
+                    <input placeholder="Age" name='age' type='text' value={this.state.age} onChange={this.handleChange} /><br />
 
                     {/* Create radio buttons for gender here */}
                     <label>
-                    <input type='radio'
-                        name='gender'
-                        value='Male'
-                        checked={this.state.gender === 'Male'}
-                        onChange={this.handleChange} /> Male
+                        <input type='radio'
+                            name='gender'
+                            value='Male'
+                            checked={this.state.gender === 'Male'}
+                            onChange={this.handleChange} /> Male
                     </label>
                     <label>
-                    <input type='radio'
-                        name='gender'
-                        value='Female'
-                        checked={this.state.gender === 'Female'}
-                        onChange={this.handleChange} /> Female
+                        <input type='radio'
+                            name='gender'
+                            value='Female'
+                            checked={this.state.gender === 'Female'}
+                            onChange={this.handleChange} /> Female
                     </label>
                     <br />
 
@@ -176,22 +177,20 @@ class Form extends React.Component {
 
                     {/* Create check boxes for dietary restrictions here */}
                     No Old Fish:<input type='checkbox'
-                        name='dietary'
+                        name='noOldFish'
                         value='No Old Fish'
                         checked={this.state.dietary.noOldFish}
                         onChange={this.handleChange} />
                     No Nails:<input type='checkbox'
-                        name='dietary'
+                        name='noNails'
                         value='No Nails'
                         checked={this.state.dietary.noNails}
                         onChange={this.handleChange} />
                     Extra Slippers:<input type='checkbox'
-                        name='dietary'
+                        name='extraSlippers'
                         value='Extra Slippers'
                         checked={this.state.dietary.extraSlippers}
                         onChange={this.handleChange} />
-
-
                     <br />
 
                     <button>Submit</button>
@@ -206,9 +205,9 @@ class Form extends React.Component {
                     Your dietary restrictions:
                     {/* Dietary restrictions here, comma separated */}
 
-                    {this.state.dietary['No Old Fish'] === true ? ' No Old Fish,' : ''}
-                    {this.state.dietary['No Nails'] === true ? ' No Nails,' : ''}
-                    {this.state.dietary['Extra Slippers'] === true ? ' Extra Slippers,' : ''}
+                    {this.state.dietary.noOldFish === true ? ' No Old Fish,' : ''}
+                    {this.state.dietary.noNails === true ? ' No Nails,' : ''}
+                    {this.state.dietary.extraSlippers === true ? ' Extra Slippers,' : ''}
                 </p>
             </main>
         )
