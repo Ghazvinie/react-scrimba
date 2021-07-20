@@ -1,3 +1,4 @@
+import { thistle } from 'color-name';
 import React from 'react';
 
 // class Form extends React.Component {
@@ -103,6 +104,8 @@ import React from 'react';
  * to play around with and learn from at https://coursework.vschool.io
  */
 
+import FormComponent from './FormComponent';
+
 class Form extends React.Component {
     constructor() {
         super()
@@ -143,78 +146,10 @@ class Form extends React.Component {
 
     render() {
         return (
-            <main>
-                <form>
-                    <input placeholder="First Name" name='firstName' type='text' value={this.state.firstName} onChange={this.handleChange} /><br />
-                    <input placeholder="Last Name" name='lastName' type='text' value={this.state.lastName} onChange={this.handleChange} /><br />
-                    <input placeholder="Age" name='age' type='text' value={this.state.age} onChange={this.handleChange} /><br />
-
-                    {/* Create radio buttons for gender here */}
-                    <label>
-                        <input type='radio'
-                            name='gender'
-                            value='Male'
-                            checked={this.state.gender === 'Male'}
-                            onChange={this.handleChange} /> Male
-                    </label>
-                    <label>
-                        <input type='radio'
-                            name='gender'
-                            value='Female'
-                            checked={this.state.gender === 'Female'}
-                            onChange={this.handleChange} /> Female
-                    </label>
-                    <br />
-
-                    {/* Create select box for location here */}
-                    <select name='location' value={this.state.location} onChange={this.handleChange}>
-                        <option value='Location:'>Location:</option>
-                        <option value='Moon'>Moon</option>
-                        <option value='Uranus'>Uranus</option>
-                        <option value='The Pub'>The Pub</option>
-                    </select>
-                    <br />
-
-                    {/* Create check boxes for dietary restrictions here */}
-                    Old Fish:<input type='checkbox'
-                        name='noOldFish'
-                        value='No Old Fish'
-                        checked={this.state.dietary.noOldFish}
-                        onChange={this.handleChange} />
-                    Nails:<input type='checkbox'
-                        name='noNails'
-                        value='No Nails'
-                        checked={this.state.dietary.noNails}
-                        onChange={this.handleChange} />
-                    Extra Slippers:<input type='checkbox'
-                        name='extraSlippers'
-                        value='Extra Slippers'
-                        checked={this.state.dietary.extraSlippers}
-                        onChange={this.handleChange} />
-                    <br />
-
-                    <button>Submit</button>
-                </form>
-                <hr />
-                <h2>Entered information:</h2>
-                <p>Your name: {this.state.firstName + ' ' + this.state.lastName}</p>
-                <p>Your age: {this.state.age}</p>
-                <p>Your gender: {this.state.gender}</p>
-                <p>Your destination: {this.state.location === 'Location:' ? '' : this.state.location}</p>
-
-                Your dietary restrictions:
-                {/* Dietary restrictions here, comma separated */}
-                <p>
-                    Old Fish: {this.state.dietary.noOldFish === true ? 'Yes' : 'No'}
-                </p>
-                <p>
-                    Nails: {this.state.dietary.noNails === true ? 'Yes' : 'No'}
-                </p>
-                <p>
-                    Extra Slippers: {this.state.dietary.extraSlippers === true ? 'Yes' : 'No'}
-                </p>
-
-            </main>
+            <FormComponent
+            handleChange={this.handleChange}
+            form={this.state}
+            />
         )
     }
 }
