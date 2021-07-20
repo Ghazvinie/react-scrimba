@@ -122,7 +122,7 @@ class Form extends React.Component {
             }
         };
         this.handleChange = this.handleChange.bind(this);
-    }
+    };
 
     handleChange(e) {
         const { name, value, checked, type } = e.target;
@@ -142,7 +142,7 @@ class Form extends React.Component {
                 [name]: value
             };
         });
-    }
+    };
 
     render() {
         return (
@@ -150,8 +150,8 @@ class Form extends React.Component {
             handleChange={this.handleChange}
             form={this.state}
             />
-        )
-    }
-}
+        );
+    };
+};
 
 export default Form;
