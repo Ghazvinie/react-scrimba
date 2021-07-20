@@ -149,17 +149,20 @@ class Form extends React.Component {
                     <input placeholder="Age" name='age' type='text' value={this.state.age} onChange={this.handleChange}/><br />
 
                     {/* Create radio buttons for gender here */}
+                    <label>
                     <input type='radio'
                         name='gender'
                         value='Male'
                         checked={this.state.gender === 'Male'}
                         onChange={this.handleChange} /> Male
+                    </label>
+                    <label>
                     <input type='radio'
                         name='gender'
                         value='Female'
                         checked={this.state.gender === 'Female'}
                         onChange={this.handleChange} /> Female
-
+                    </label>
                     <br />
 
                     {/* Create select box for location here */}
