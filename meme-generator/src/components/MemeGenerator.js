@@ -18,8 +18,7 @@ class MemeGenerator extends React.Component{
         this.setState({
             allMemeImages: jsonData.data.memes
         });
-
-    }
+    };
 
     render(){
         return (
