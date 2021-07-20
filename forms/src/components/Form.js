@@ -110,28 +110,30 @@ class Form extends React.Component {
             gender: '',
             location: '',
             dietary: {
-                noOldFish : false
+                'No Old Fish': false,
+                'No Nails': false,
+                'Extra Slippers': false
             }
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
         const { name, value, checked } = e.target;
-        console.log(name, value, checked)
-        console.log(this.state[name][value])
-
-        
-
         if (value === 'Location:') return;
-        this.setState({
-            dietary : {
-                mad : 'looo'
-            }
-            // [name === 'dietary' ? [name][value] : name] : name === 'dietary' ? checked : value
-        });
-        console.log(this.state)
 
+        this.setState((prevState) => {
+            if (name === 'dietary') {
+                return {
+                    [name]: {
+                        [value]: checked
+                    }
+                };
+            }
+            return {
+                [name]: name === 'dietary' ? checked : value
+            };
+        });
     }
 
     render() {
@@ -168,9 +170,20 @@ class Form extends React.Component {
                     {/* Create check boxes for dietary restrictions here */}
                     No Old Fish:<input type='checkbox'
                         name='dietary'
-                        value='noOldFish'
+                        value='No Old Fish'
                         checked={this.state.dietary.noOldFish}
                         onChange={this.handleChange} />
+                    No Nails:<input type='checkbox'
+                        name='dietary'
+                        value='No Nails'
+                        checked={this.state.dietary.noNails}
+                        onChange={this.handleChange} />
+                    Extra Slippers:<input type='checkbox'
+                        name='dietary'
+                        value='Extra Slippers'
+                        checked={this.state.dietary.extraSlippers}
+                        onChange={this.handleChange} />
+
 
                     <br />
 
@@ -185,6 +198,8 @@ class Form extends React.Component {
                 <p>
                     Your dietary restrictions:
                     {/* Dietary restrictions here, comma separated */}
+
+                    {this.state.dietary['No Nails'] === 'true' ? 'No Nails' : ''}
                 </p>
             </main>
         )
