@@ -107,13 +107,15 @@ class Form extends React.Component {
     constructor() {
         super()
         this.state = {
-            gender: ''
+            gender: '',
+            location: ''
         }
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
         const { name, value } = e.target;
+        if (value === 'Please Select:') return;
 
         this.setState({
             [name] : value
@@ -143,6 +145,13 @@ class Form extends React.Component {
                     <br />
 
                     {/* Create select box for location here */}
+                    Location:
+                    <select name='location' value={this.state.location} onChange={this.handleChange}>
+                        <option selected value='Please Select:'>Please Select:</option>
+                        <option value='Moon'>Moon</option>
+                        <option value='Uranus'>Uranus</option>
+                        <option value='The Pub'>The Pub</option>
+                    </select>
                     <br />
 
                     {/* Create check boxes for dietary restrictions here */}
@@ -155,7 +164,7 @@ class Form extends React.Component {
                 <p>Your name: {/* First and last name here */}</p>
                 <p>Your age: {/* Age here */}</p>
                 <p>Your gender: {this.state.gender}</p>
-                <p>Your destination: {/* Destination here */}</p>
+                <p>Your destination: {this.state.location === 'Please Select:' ? '' : this.state.location}</p>
                 <p>
                     Your dietary restrictions:
                     {/* Dietary restrictions here, comma separated */}
