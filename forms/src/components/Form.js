@@ -176,12 +176,12 @@ class Form extends React.Component {
                     <br />
 
                     {/* Create check boxes for dietary restrictions here */}
-                    No Old Fish:<input type='checkbox'
+                    Old Fish:<input type='checkbox'
                         name='noOldFish'
                         value='No Old Fish'
                         checked={this.state.dietary.noOldFish}
                         onChange={this.handleChange} />
-                    No Nails:<input type='checkbox'
+                    Nails:<input type='checkbox'
                         name='noNails'
                         value='No Nails'
                         checked={this.state.dietary.noNails}
@@ -204,10 +204,15 @@ class Form extends React.Component {
                 <p>
                     Your dietary restrictions:
                     {/* Dietary restrictions here, comma separated */}
-
-                    {this.state.dietary.noOldFish === true ? ' No Old Fish,' : ''}
-                    {this.state.dietary.noNails === true ? ' No Nails,' : ''}
-                    {this.state.dietary.extraSlippers === true ? ' Extra Slippers,' : ''}
+                    <p>
+                        Old Fish: {this.state.dietary.noOldFish === true ? 'Yes' : 'No'}
+                    </p>
+                    <p>
+                        Nails: {this.state.dietary.noNails === true ? 'Yes' : 'No'}
+                    </p>
+                    <p>
+                        Extra Slippers: {this.state.dietary.extraSlippers === true ? 'Yes' : 'No'}
+                    </p>            
                 </p>
             </main>
         )
