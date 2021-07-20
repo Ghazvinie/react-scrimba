@@ -108,18 +108,30 @@ class Form extends React.Component {
         super()
         this.state = {
             gender: '',
-            location: ''
+            location: '',
+            dietary: {
+                noOldFish : false
+            }
         }
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
-        const { name, value } = e.target;
-        if (value === 'Please Select:') return;
+        const { name, value, checked } = e.target;
+        console.log(name, value, checked)
+        console.log(this.state[name][value])
 
+        
+
+        if (value === 'Location:') return;
         this.setState({
-            [name] : value
+            dietary : {
+                mad : 'looo'
+            }
+            // [name === 'dietary' ? [name][value] : name] : name === 'dietary' ? checked : value
         });
+        console.log(this.state)
+
     }
 
     render() {
@@ -145,9 +157,8 @@ class Form extends React.Component {
                     <br />
 
                     {/* Create select box for location here */}
-                    Location:
                     <select name='location' value={this.state.location} onChange={this.handleChange}>
-                        <option selected value='Please Select:'>Please Select:</option>
+                        <option selected value='Location:'>Location:</option>
                         <option value='Moon'>Moon</option>
                         <option value='Uranus'>Uranus</option>
                         <option value='The Pub'>The Pub</option>
@@ -155,6 +166,12 @@ class Form extends React.Component {
                     <br />
 
                     {/* Create check boxes for dietary restrictions here */}
+                    No Old Fish:<input type='checkbox'
+                        name='dietary'
+                        value='noOldFish'
+                        checked={this.state.dietary.noOldFish}
+                        onChange={this.handleChange} />
+
                     <br />
 
                     <button>Submit</button>
@@ -164,7 +181,7 @@ class Form extends React.Component {
                 <p>Your name: {/* First and last name here */}</p>
                 <p>Your age: {/* Age here */}</p>
                 <p>Your gender: {this.state.gender}</p>
-                <p>Your destination: {this.state.location === 'Please Select:' ? '' : this.state.location}</p>
+                <p>Your destination: {this.state.location === 'Location:' ? '' : this.state.location}</p>
                 <p>
                     Your dietary restrictions:
                     {/* Dietary restrictions here, comma separated */}
