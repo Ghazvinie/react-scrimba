@@ -23,12 +23,19 @@ class MemeGenerator extends React.Component {
 
     handelChange(e) {
         const { name, value } = e.target;
-        console.log(value)
         this.setState({
             [name]: value
         });
-        console.log(this.state.bottomText)
+    };
+
+    handleSubmit(e){
+        console.log('hei')
+        e.preventDefault();
+        const randomIdx = Math.floor(Math.random() * this.state.allMemeImages.length + 1)
+        console.log(randomIdx)
     }
+
+
 
     render() {
         return (
@@ -49,8 +56,11 @@ class MemeGenerator extends React.Component {
                         value={this.state.bottomText} />
 
 
-                <button>Generate!</button>
+                <button onClick={() => this.handleSubmit()}>Generate!</button>
                 </form>
+                <div className='random-img'>
+                    <img src={this.state.randomImage} alt='random meme' />
+                </div>
             </div>
         );
     };
