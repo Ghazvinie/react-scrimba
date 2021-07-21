@@ -6,7 +6,7 @@ class MemeGenerator extends React.Component {
         this.state = {
             topText: '',
             bottomText: '',
-            randomImage: '',
+            randomImage: 'http://i.imgflip.com/1bij.jpg',
             allMemeImages: []
         };
         this.handleChange = this.handelChange.bind(this);
@@ -28,12 +28,14 @@ class MemeGenerator extends React.Component {
         });
     };
 
-    handleSubmit(e){
-        console.log('hei')
+    handleSubmit(e) {
         e.preventDefault();
-        const randomIdx = Math.floor(Math.random() * this.state.allMemeImages.length + 1)
-        console.log(randomIdx)
-    }
+        const randomIdx = Math.floor(Math.random() * this.state.allMemeImages.length)
+        console.log(this.state.allMemeImages[0])
+        this.setState({
+            randomImage : this.state.allMemeImages[randomIdx].url
+        });
+    };
 
 
 
@@ -56,10 +58,12 @@ class MemeGenerator extends React.Component {
                         value={this.state.bottomText} />
 
 
-                <button onClick={() => this.handleSubmit()}>Generate!</button>
+                    <button onClick={(e) => this.handleSubmit(e)}>Generate!</button>
                 </form>
-                <div className='random-img'>
+                <div className='meme'>
                     <img src={this.state.randomImage} alt='random meme' />
+                    <h2 className='top'>{this.state.topText}</h2>
+                    <h2 className='bottom'>{this.state.bottomText}</h2>
                 </div>
             </div>
         );
