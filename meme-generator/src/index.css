@@ -32,10 +32,12 @@ header > p {
   position: relative;
   width: 90%;
   margin: auto;
+  display: flex;
 }
 
 .meme > img {
   width: 100%;
+  height: 100%;
 }
 
 .meme > h2 {
