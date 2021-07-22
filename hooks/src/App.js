@@ -1,15 +1,10 @@
 import React from "react";
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
-
+import State from './components/State';
 
 const App = () => (
     <div>
-    <Header />
-    <MainContent />
-    <Footer />
+        <State />
     </div>
-)
+);
 
 export default App;
