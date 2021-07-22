@@ -1,6 +1,9 @@
 import React from 'react';
 
 class MemeGenerator extends React.Component {
+    state = { // Can add class properties and remove need for constructor
+        aPractice: 'property'
+    };
     constructor() {
         super()
         this.state = {
@@ -9,7 +12,7 @@ class MemeGenerator extends React.Component {
             randomImage: 'http://i.imgflip.com/1bij.jpg',
             allMemeImages: []
         };
-        this.handleChange = this.handelChange.bind(this);
+        // this.handleChange = this.handelChange.bind(this); () => {} removes need for binding, as it inherits 'this' from surrounding context
     };
 
     async componentDidMount() {
@@ -21,7 +24,7 @@ class MemeGenerator extends React.Component {
         });
     };
 
-    handelChange(e) {
+    handelChange = (e) => {
         const { name, value } = e.target;
         this.setState({
             [name]: value
