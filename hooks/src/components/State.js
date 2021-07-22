@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function State() {
+    const [value, dispatchAction] = useState('yes');
+    console.log(value)
+
     return (
         <div>
-            Hiya
+            <h1>This is the thing ----> { value}</h1>
         </div>
     );
 }
