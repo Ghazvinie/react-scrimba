@@ -6,7 +6,8 @@ function State() {
     return (
         <div>
             <h1>{count}</h1>
-            <button onClick={()=> setCount(count+1)}>Change!</button>
+            <button onClick={()=> setCount(count+1)}>Increment</button>
+            <button onClick={() => setCount(count-1)}>Decrement</button>
         </div>
     );
 }
