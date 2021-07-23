@@ -8,7 +8,7 @@ function State() {
        setColour('blue'); 
     }, []);
 
-    useEffect(() => { // componentWillUpdate()
+    useEffect(() => { // componentDidUpdate()
         // logic
     }, [/* someVar */])
 
