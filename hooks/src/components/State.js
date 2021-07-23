@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function State() {
     const [count, setCount] = useState(0);
+    const [colour, setColour] = useState('');
+
+    useEffect(() => {
+       setColour('blue') 
+    }, [count]);
 
     return (
         <div>
-            <h1>{count}</h1>
-            <button onClick={()=> setCount(count+1)}>Increment</button>
-            <button onClick={() => setCount(count*2)}>Double</button>
-            <button onClick={() => setCount(Math.round(count/2))}>Half</button>
-            <button onClick={() => setCount(count-1)}>Decrement</button>
+            <h1 style={{color: colour}}>{count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <button onClick={() => setCount(count * 2)}>Double</button>
+            <button onClick={() => setCount(Math.round(count / 2))}>Half</button>
+            <button onClick={() => setCount(count - 1)}>Decrement</button>
         </div>
     );
 }
