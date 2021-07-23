@@ -4,9 +4,20 @@ function State() {
     const [count, setCount] = useState(0);
     const [colour, setColour] = useState('');
 
-    useEffect(() => {
-       setColour('blue') 
-    }, [count]);
+    useEffect(() => { // componentDidMount()
+       setColour('blue'); 
+    }, []);
+
+    useEffect(() => { // componentWillUpdate()
+        // logic
+    }, [/* someVar */])
+
+    useEffect(() => { // componentWillUnmount()
+        setColour();
+        return () => {
+            // logic
+        };
+    });
 
     return (
         <div>
