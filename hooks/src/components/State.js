@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 function State() {
-    const [value, dispatchAction] = useState('yes');
-    console.log(value)
+    const [count] = useState(0);
 
     return (
         <div>
-            <h1>This is the thing ----> { value}</h1>
+            <h1>{count}</h1>
+            <button>Change!</button>
         </div>
     );
 }
