@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'
 
 function State() {
     const [count, setCount] = useState(0);
@@ -30,6 +31,9 @@ function State() {
     );
 }
 
+
+
+
 function Card(props) {
     const styles = {
         backgroundColor: props.cardColor,
@@ -42,11 +46,16 @@ function Card(props) {
     );
 }
 
-Card.defaultProps = {
-    cardColor: 'yellow',
-    height: 100,
-    width: 100
+Card.propTypes = {
+    cardColor:  PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(['blue'])])
+    // PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(['blue', 'red'])])
 }
+
+// Card.defaultProps = {
+//     cardColor: 'yellow',
+//     height: 100,
+//     width: 100
+// }
 
 
 export { State, Card };
