@@ -47,7 +47,7 @@ function Card(props) {
 }
 
 Card.propTypes = {
-    cardColor:  PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(['blue'])])
+    cardColor: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(['blue'])])
     // PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(['blue', 'red'])])
 }
 
@@ -60,9 +60,9 @@ Card.propTypes = {
 
 function RoundedImg(props) {
     return (
-        <img 
-            src={props.src} 
-            style={{borderRadius: props.borderRadius}} 
+        <img
+            src={props.src}
+            style={{ borderRadius: props.borderRadius }}
             className="round-img"
             alt='img'
         />
