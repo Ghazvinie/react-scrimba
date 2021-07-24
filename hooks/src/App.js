@@ -1,12 +1,11 @@
 import React from "react";
-import { State, Card } from './components/State';
+import { State, Card, RoundedImg } from './components/State';
 
 const App = () => (
     <div>
         <State />
-        <Card cardColor={'hello'} height={100} width={100}/>
-        {/* <Card cardColor='green' />
-        <Card /> */}
+        <RoundedImg src="https://picsum.photos/id/237/300/300" borderRadius="10px" />
+
     </div>
 );
 

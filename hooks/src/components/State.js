@@ -58,4 +58,24 @@ Card.propTypes = {
 // }
 
 
-export { State, Card };
+function RoundedImg(props) {
+    return (
+        <img 
+            src={props.src} 
+            style={{borderRadius: props.borderRadius}} 
+            className="round-img"
+            alt='img'
+        />
+    );
+}
+
+RoundedImg.propTypes = {
+    src: PropTypes.string.isRequired,
+    borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};
+
+RoundedImg.defaultProps = {
+    borderRadius: '50%'
+};
+
+export { State, Card, RoundedImg };
