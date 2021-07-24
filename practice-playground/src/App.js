@@ -1,7 +1,9 @@
 import React from "react";
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
-import  MyHOC  from './components/HOC';
+import  {MyHOC, Menu, Favorite }  from './components/HOC';
+
+
 
 // const App = () => (
 //     <div>
@@ -35,12 +37,24 @@ import  MyHOC  from './components/HOC';
 //     );
 // }
 
-function App(props) {
+// function App(props) {
+//     return (
+//         <div>{props.favieNum}</div>
+//     );
+// }
+
+// const CombinedComponent = MyHOC(App);
+
+// export default MyHOC(App);
+
+function App() {
     return (
-        <div>{props.favieNum}</div>
-    );
+        <div>
+            <Menu />
+            <hr />
+            <Favorite />
+        </div>
+    )
 }
 
-const CombinedComponent = MyHOC(App);
-
-export default MyHOC(App);
+export default App;
