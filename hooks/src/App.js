@@ -1,9 +1,12 @@
 import React from "react";
-import State from './components/State';
+import { State, Card } from './components/State';
 
 const App = () => (
     <div>
         <State />
+        <Card cardColor='red'/>
+        <Card cardColor='green'/>
+        <Card />
     </div>
 );
 
