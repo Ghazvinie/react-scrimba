@@ -14,13 +14,13 @@ class Favorite extends React.Component {
         isFavorited: false
     };
 
-    toggleFavorite = () => {
-        this.setState(prevState => {
-            return {
-                isFavorited: !prevState.isFavorited
-            };
-        });
-    };
+    // toggleFavorite = () => {
+    //     this.setState(prevState => {
+    //         return {
+    //             isFavorited: !prevState.isFavorited
+    //         };
+    //     });
+    // };
 
     render() {
         return (
@@ -44,13 +44,13 @@ class Menu extends React.Component {
         show: true
     };
 
-    toggleShow = () => {
-        this.setState(prevState => {
-            return {
-                show: !prevState.show
-            };
-        });
-    };
+    // toggleShow = () => {
+    //     this.setState(prevState => {
+    //         return {
+    //             show: !prevState.show
+    //         };
+    //     });
+    // };
 
     render() {
         return (
@@ -68,5 +68,56 @@ class Menu extends React.Component {
     };
 };
 
+class Toggler extends React.Component {
+    state = {
+        on: false
+    };
 
-export { MyHOC, Favorite, Menu };
+    toggle = () => {
+        this.setState(prevState => {
+            return {
+                on: !prevState.on
+            }
+        });
+    };
+    toggleShow = () => {
+        this.setState(prevState => {
+            return {
+                show: !prevState.show
+            };
+        });
+    };
+
+    componentDidMount() {
+        console.log(this.state.component)
+    }
+
+    toggleFavorite = () => {
+        this.setState(prevState => {
+            return {
+                isFavorited: !prevState.isFavorited
+            };
+        });
+    };
+
+    render() {
+        const Component = this.state.component
+        return (
+            <Component />
+        );
+    };
+
+};
+
+function withToggle(ComponentPassedIn) {
+    return function (props) {
+        return (
+            <Toggler component={ComponentPassedIn} {...props} />
+        );
+    };
+}
+
+const FavoriteWithToggle = withToggle(Favorite);
+const MenuWithToggle = withToggle(Menu)
+
+export { MyHOC, FavoriteWithToggle, MenuWithToggle, withToggle };

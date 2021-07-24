@@ -1,7 +1,7 @@
 import React from "react";
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
-import  {MyHOC, Menu, Favorite }  from './components/HOC';
+import  {MyHOC, MenuWithToggle, FavoriteWithToggle }  from './components/HOC';
 
 
 
@@ -50,9 +50,9 @@ import  {MyHOC, Menu, Favorite }  from './components/HOC';
 function App() {
     return (
         <div>
-            <Menu />
+            <MenuWithToggle />
             <hr />
-            <Favorite />
+            <FavoriteWithToggle />
         </div>
     )
 }
