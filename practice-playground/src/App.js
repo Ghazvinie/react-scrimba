@@ -31,7 +31,7 @@ function App() {
                 <button>Sign Me Up!</button>
             </Callout>
         </main>
-    )
+    );
 }
 
 export default App;
