@@ -1,12 +1,12 @@
 import React from 'react';
 
-function myHOC(ComponentPassedIn) {
+function MyHOC(PassedInComponent){
 
-    return function (props) {
+    return function(props){
         return (
-            <ComponentPassedIn newProp={18}  {...props}/>
+            <PassedInComponent favieNum={18} />
         );
     };
 }
 
-export { myHOC };
+export default MyHOC;

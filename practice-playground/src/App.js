@@ -1,7 +1,7 @@
 import React from "react";
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
-import { myHOC } from './components/HOC';
+import  MyHOC  from './components/HOC';
 
 // const App = () => (
 //     <div>
@@ -37,10 +37,10 @@ import { myHOC } from './components/HOC';
 
 function App(props) {
     return (
-        <div>Hello World --- {props.newProp}</div>
+        <div>{props.favieNum}</div>
     );
 }
 
-const CombinedHOC = myHOC(App);
+const CombinedComponent = MyHOC(App);
 
-export default CombinedHOC;
+export default CombinedComponent;
