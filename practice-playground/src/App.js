@@ -43,4 +43,4 @@ function App(props) {
 
 const CombinedComponent = MyHOC(App);
 
-export default CombinedComponent;
+export default MyHOC(App);
