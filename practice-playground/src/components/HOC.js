@@ -47,24 +47,21 @@ class Toggler extends React.Component {
     toggleFunc = () => {
         this.setState((prevState) => {
             return {
-                on: !prevState.false
+                on: !prevState.on
             };
         });
     };
-
     render() {
         return (
-            <>
-                <this.props.Component on={this.state.on} toggleFunc={this.toggleFunc} {...this.props} />
-            </>
+            <this.props.Component on={this.state.on} toggleFunc={this.toggleFunc} {...this.props} />
         );
     };
 }
 
-function withToggle(PassedInComponent, optionsObject) {
+function withToggle(PassedInComponent, optionsObj) {
     return function (props) {
         return (
-            <Toggler Component={PassedInComponent} defaultOnValue={optionsObject.defaultOnValue}  {...props} />
+            <Toggler defaultOnValue={optionsObj.defaultOnValue} Component={PassedInComponent} {...props} />
         );
     };
 }
