@@ -9,40 +9,35 @@ function MyHOC(PassedInComponent) {
     };
 }
 
-class Favorite extends React.Component {    
-    render() {
-        return (
-            <div>
-                <h3>Click heart to favorite</h3>
-                <h1>
-                    <span 
-                        onClick={this.props.toggleFunc}
-                    >
-                        {this.props.on ? "❤️" : "♡"}
-                    </span>
-                </h1>
-            </div>
-        ); 
-    };
+
+function favorite(props) {
+    return (
+        <div>
+            <h3>Click heart to favorite</h3>
+            <h1>
+                <span
+                    onClick={props.toggleFunc}
+                >
+                    {props.on ? "❤️" : "♡"}
+                </span>
+            </h1>
+        </div>
+    );
 }
 
-
-class Menu extends React.Component {
-    render() {
-        return (
-            <div>
-                {console.log(this.props)}
-                <button onClick={this.props.toggleFunc}>{this.props.on ? "Hide" : "Show"} Menu </button>
-                <nav style={{display: this.props.on ? "block" : "none"}}>
-                    <h6>Signed in as Coder123</h6>
-                    <a>Your Profile</a>
-                    <a>Your Repositories</a>
-                    <a>Your Stars</a>
-                    <a>Your Gists</a>
-                </nav>
-            </div>
-        ); 
-    };
+function menu(props) {
+    return (
+        <div>
+            <button onClick={props.toggleFunc}>{props.on ? "Hide" : "Show"} Menu </button>
+            <nav style={{ display: props.on ? "block" : "none" }}>
+                <h6>Signed in as Coder123</h6>
+                <a>Your Profile</a>
+                <a>Your Repositories</a>
+                <a>Your Stars</a>
+                <a>Your Gists</a>
+            </nav>
+        </div>
+    );
 }
 
 class Toggler extends React.Component {
@@ -53,7 +48,7 @@ class Toggler extends React.Component {
     toggleFunc = () => {
         this.setState((prevState) => {
             return {
-                on: !prevState.on
+                on: !prevState.false
             };
         });
     };
@@ -61,21 +56,21 @@ class Toggler extends React.Component {
     render() {
         return (
             <>
-            <this.props.Component on={this.state.on} toggleFunc={this.toggleFunc} {...this.props} />
+                <this.props.Component on={this.state.on} toggleFunc={this.toggleFunc} {...this.props} />
             </>
         );
-    };
+    }
 }
 
 function withToggle(PassedInComponent) {
-    return function(props){
+    return function (props) {
         return (
-            <Toggler {...props} Component={PassedInComponent}/>
+            <Toggler Component={PassedInComponent} {...props} />
         );
     };
 }
 
-const FavoriteWithToggle = withToggle(Favorite);
-const MenuWithToggle = withToggle(Menu)
+const FavoriteWithToggle = withToggle(favorite);
+const MenuWithToggle = withToggle(menu)
 
 export { MyHOC, FavoriteWithToggle, MenuWithToggle, withToggle };
