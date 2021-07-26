@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function MyHOC(PassedInComponent) {
     return function (props) {
@@ -14,9 +14,7 @@ function Favorite(props) {
         <div>
             <h3>Click heart to favorite</h3>
             <h1>
-                <span
-                    onClick={props.toggleFunc}
-                >
+                <span onClick={props.toggleFunc}>
                     {props.on ? "❤️" : "♡"}
                 </span>
             </h1>
