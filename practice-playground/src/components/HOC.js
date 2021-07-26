@@ -69,7 +69,7 @@ function withToggle(PassedInComponent, optionsObject) {
     };
 }
 
-const FavoriteWithToggle = withToggle(Favorite, {defaultOnValue: false});
-const MenuWithToggle = withToggle(Menu,  {defaultOnValue: true})
+const FavoriteWithToggle = withToggle(Favorite, { defaultOnValue: false });
+const MenuWithToggle = withToggle(Menu, { defaultOnValue: true })
 
 export { MyHOC, FavoriteWithToggle, MenuWithToggle, withToggle };
