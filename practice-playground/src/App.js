@@ -1,8 +1,8 @@
 import React from "react";
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
-import  {MyHOC, MenuWithToggle, FavoriteWithToggle }  from './components/HOC';
-import RenderProps from './components/RenderProps';
+// import  {MyHOC, MenuWithToggle, FavoriteWithToggle }  from './components/HOC';
+import {RenderProps, Menu, Favorite} from './components/RenderProps';
 
 
 
@@ -59,10 +59,11 @@ import RenderProps from './components/RenderProps';
 function App() {
     return (
         <>
-        <MenuWithToggle />
-        <FavoriteWithToggle />
+        <Menu />
+        <hr/>
+        <Favorite/>
         </>
-    )
+    );
 }
 
 export default App;

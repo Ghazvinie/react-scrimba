@@ -1,3 +1,4 @@
+import { checkPropTypes } from 'prop-types';
 import React from 'react';
 
 // function RenderProps(props){
@@ -10,35 +11,40 @@ import React from 'react';
 
 
 function Favorite(props) {
-    const renderProp = () => {
+    const renderProp = (on, func) => {
         return (
             <div>
                 <h3>Click heart to favorite</h3>
                 <h1>
-                    <span onClick={props.toggleFunc}>
-                        {props.on ? "❤️" : "♡"}
+                    <span onClick={func}>
+                        {on ? "❤️" : "♡"}
                     </span>
                 </h1>
             </div>
         );
-    }
+    };
     return (
-        <Toggler render={ } />
-
+        <Toggler render={renderProp} />
+    );
 }
 
 function Menu(props) {
+    const renderProp = (on, func) => {
+        return (
+            <div>
+                <button onClick={func}>{on ? "Hide" : "Show"} Menu </button>
+                <nav style={{ display: on ? "block" : "none" }}>
+                    <h6>Signed in as Coder123</h6>
+                    <a>Your Profile</a>
+                    <a>Your Repositories</a>
+                    <a>Your Stars</a>
+                    <a>Your Gists</a>
+                </nav>
+            </div>
+        );
+    }
     return (
-        <div>
-            <button onClick={props.toggleFunc}>{props.on ? "Hide" : "Show"} Menu </button>
-            <nav style={{ display: props.on ? "block" : "none" }}>
-                <h6>Signed in as Coder123</h6>
-                <a>Your Profile</a>
-                <a>Your Repositories</a>
-                <a>Your Stars</a>
-                <a>Your Gists</a>
-            </nav>
-        </div>
+        <Toggler render={renderProp} />
     );
 }
 
@@ -56,14 +62,18 @@ class Toggler extends React.Component {
     };
     render() {
         return (
-            <this.props.Component on={this.state.on} toggleFunc={this.toggleFunc} {...this.props} />
+            <>
+                {this.props.render(this.state.on, this.toggleFunc)}
+            </>
         );
     };
 }
 
-const FavoriteWithToggle = withToggle(Favorite, { defaultOnValue: false });
-const MenuWithToggle = withToggle(Menu, { defaultOnValue: true })
 
-export { FavoriteWithToggle, MenuWithToggle, withToggle };
+
+// const FavoriteWithToggle = withToggle(Favorite, { defaultOnValue: false });
+// const MenuWithToggle = withToggle(Menu, { defaultOnValue: true })
+
+export { Favorite, Menu }
 
 // export default RenderProps;
