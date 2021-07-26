@@ -76,4 +76,4 @@ class Toggler extends React.Component {
 
 export { Favorite, Menu }
 
-// expo
+// export default RenderProps;
