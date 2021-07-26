@@ -1,8 +1,11 @@
 import React from 'react';
 
-function RenderProps(){
+function RenderProps(props){
     return (
-        <h1>ihjsdjks</h1>
+        <div>
+        {props.render('daniel')}
+        </div>
+
     )
 }
 

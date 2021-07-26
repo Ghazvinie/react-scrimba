@@ -51,7 +51,7 @@ import RenderProps from './components/RenderProps';
 function App() {
     return (
         <div>
-            <RenderProps />
+            <RenderProps render={(name) => <h1>{name}</h1>}/>
         </div>
     )
 }
