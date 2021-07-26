@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 function MyHOC(PassedInComponent) {
-
     return function (props) {
         return (
             <PassedInComponent favieNum={18} />
@@ -42,7 +41,7 @@ function Menu(props) {
 
 class Toggler extends React.Component {
     state = {
-        on: false
+        on: this.props.defaultOnValue
     };
 
     toggleFunc = () => {
@@ -62,15 +61,15 @@ class Toggler extends React.Component {
     };
 }
 
-function withToggle(PassedInComponent) {
+function withToggle(PassedInComponent, optionsObject) {
     return function (props) {
         return (
-            <Toggler Component={PassedInComponent} {...props} />
+            <Toggler Component={PassedInComponent} defaultOnValue={optionsObject.defaultOnValue}  {...props} />
         );
     };
 }
 
-const FavoriteWithToggle = withToggle(Favorite);
-const MenuWithToggle = withToggle(Menu)
+const FavoriteWithToggle = withToggle(Favorite, {defaultOnValue: false});
+const MenuWithToggle = withToggle(Menu,  {defaultOnValue: true})
 
 export { MyHOC, FavoriteWithToggle, MenuWithToggle, withToggle };
