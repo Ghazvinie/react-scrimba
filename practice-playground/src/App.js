@@ -1,7 +1,7 @@
 import React from "react";
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
-// import  {MyHOC, MenuWithToggle, FavoriteWithToggle }  from './components/HOC';
+import  {MyHOC, MenuWithToggle, FavoriteWithToggle }  from './components/HOC';
 import RenderProps from './components/RenderProps';
 
 
@@ -48,11 +48,20 @@ import RenderProps from './components/RenderProps';
 
 // export default MyHOC(App);
 
+// function App() {
+//     return (
+//         <div>
+//             <RenderProps render={(thing) => <h1>{thing > 0 ? 'Greater than 0' : 'Less than 0'}</h1>}/>
+//         </div>
+//     );
+// }
+
 function App() {
     return (
-        <div>
-            <RenderProps render={(name) => <h1>{name}</h1>}/>
-        </div>
+        <>
+        <MenuWithToggle />
+        <FavoriteWithToggle />
+        </>
     )
 }
 
