@@ -10,17 +10,7 @@ function MyHOC(PassedInComponent) {
 }
 
 class Favorite extends React.Component {
-    state = {
-        on: this.props.on
-    };
 
-    // toggleFavorite = () => {
-    //     this.setState(prevState => {
-    //         return {
-    //             isFavorited: !prevState.isFavorited
-    //         };
-    //     });
-    // };
 
     render() {
         return (
@@ -40,17 +30,7 @@ class Favorite extends React.Component {
 
 
 class Menu extends React.Component {
-    state = {
-        on: this.props.on
-    };
 
-    // toggleShow = () => {
-    //     this.setState(prevState => {
-    //         return {
-    //             show: !prevState.show
-    //         };
-    //     });
-    // };
 
     render() {
         return (
