@@ -10,7 +10,7 @@ function MyHOC(PassedInComponent) {
 }
 
 
-function favorite(props) {
+function Favorite(props) {
     return (
         <div>
             <h3>Click heart to favorite</h3>
@@ -25,7 +25,7 @@ function favorite(props) {
     );
 }
 
-function menu(props) {
+function Menu(props) {
     return (
         <div>
             <button onClick={props.toggleFunc}>{props.on ? "Hide" : "Show"} Menu </button>
@@ -59,7 +59,7 @@ class Toggler extends React.Component {
                 <this.props.Component on={this.state.on} toggleFunc={this.toggleFunc} {...this.props} />
             </>
         );
-    }
+    };
 }
 
 function withToggle(PassedInComponent) {
@@ -70,7 +70,7 @@ function withToggle(PassedInComponent) {
     };
 }
 
-const FavoriteWithToggle = withToggle(favorite);
-const MenuWithToggle = withToggle(menu)
+const FavoriteWithToggle = withToggle(Favorite);
+const MenuWithToggle = withToggle(Menu)
 
 export { MyHOC, FavoriteWithToggle, MenuWithToggle, withToggle };
