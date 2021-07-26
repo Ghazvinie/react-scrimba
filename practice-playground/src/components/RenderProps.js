@@ -11,7 +11,8 @@ import React from 'react';
 
 
 function Favorite() {
-    const renderProp = (on, func) => {
+    const renderProp = (obj) => {
+        const {on, func} = obj;
         return (
             <div>
                 <h3>Click heart to favorite</h3>
@@ -24,12 +25,13 @@ function Favorite() {
         );
     };
     return (
-        <Toggler render={renderProp} defaultOnValue={false} />
+        <Toggler render={renderProp} />
     );
 }
 
 function Menu() {
-    const renderProp = (on, func) => {
+    const renderProp = (obj) => {
+        const {on, func} = obj;
         return (
             <div>
                 <button onClick={func}>{on ? "Hide" : "Show"} Menu </button>
@@ -52,22 +54,25 @@ class Toggler extends React.Component {
     state = {
         on: this.props.defaultOnValue
     };
+    static defaultProps = {
+        on: false
+    };
 
     toggleFunc = () => {
-        this.setState((prevState) => {
-            return {
-                on: !prevState.on
-            };
-        });
+        this.setState((prevState) => ({
+            on: !prevState.on
+        })
+        );
     };
     render() {
         return (
             <>
-                {this.props.render(this.state.on, this.toggleFunc)}
+                {this.props.render({ on: this.state.on, func: this.toggleFunc })}
             </>
         );
     };
 }
+
 
 
 
@@ -76,4 +81,3 @@ class Toggler extends React.Component {
 
 export { Favorite, Menu }
 
-// expo
