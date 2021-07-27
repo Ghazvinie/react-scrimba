@@ -4,30 +4,6 @@ import ReactDOM from 'react-dom';
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
 // import  {MyHOC, MenuWithToggle, FavoriteWithToggle }  from './components/HOC';
-import {RenderProps, Menu, Favorite} from './components/RenderProps';
-import { SpeechKitSdk } from '@speechkit/speechkit-audio-player-v2';
-
-
-
-const initParams = {
-
-    projectId: 6561,
-    podcastId: "...",
-    articleUrl: '',
-    externalId: "",
-      // Advanced Parameter
-      renderNode: "speechkit-player",	// The default is set to `speechkit-player`
-  };
-  
-
-SpeechKitSdk.isAudioReady(initParams).then((boolResp) => console.log(boolResp) );
-
-
-
-const element = <div id='speechkit-player'>here</div>;
-ReactDOM.render(element, document.getElementById('root'));
-
-
 
 // const App = () => (
 //     <div>
