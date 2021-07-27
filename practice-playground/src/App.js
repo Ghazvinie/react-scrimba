@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
-import  {MyHOC, Menu, Favorite}  from './components/HOC';
+// import  {MyHOC, Menu, Favorite}  from './components/HOC';
+import DataFetcher from "./components/DataFetcher";
 
 // const App = () => (
 //     <div>
@@ -58,9 +59,7 @@ import  {MyHOC, Menu, Favorite}  from './components/HOC';
 function App() {
     return (
         <>
-        <Menu />
-        <hr/>
-        <Favorite/>
+        <DataFetcher />
         </>
     );
 }
