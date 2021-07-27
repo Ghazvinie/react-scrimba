@@ -80,4 +80,4 @@ class Toggler extends React.Component {
 // const MenuWithToggle = withToggle(Menu, { defaultOnValue: true })
 
 export { Favorite, Menu }
-
+// https://swapi.dev/api/people/1/
