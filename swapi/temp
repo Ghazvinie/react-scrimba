@@ -1,0 +1,11 @@
+    async componentDidMount() {
+        this.setState({ isLoading: true });
+
+        const response = await fetch('https://swapi.dev/api/people/1/');
+        const data = await response.json();
+
+        this.setState({
+            character: data,
+            isLoading: false
+        });
+    };
