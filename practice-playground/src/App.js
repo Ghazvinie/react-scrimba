@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
@@ -59,7 +58,7 @@ import DataFetcher from "./components/DataFetcher";
 function App() {
     return (
         <>
-            <DataFetcher url="https://swapi.co/api/people/1">
+            <DataFetcher url="https://swapi.dev/api/people/1/">
                 {/**
                  * Part 2: Call the function the DataFetcher is expecting.
                  * If should receive the data and the loading state, and return the JSX

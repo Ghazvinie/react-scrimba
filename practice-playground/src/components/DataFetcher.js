@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 
 /**
  * Challenge: Fill in the blanks in the code here (part 1) and in the App.js
@@ -22,16 +22,23 @@ class DataFetcher extends Component {
         loading: false,
         data: null
     }
-    
-    componentDidMount() {
-        this.setState({loading: true})
-        fetch(this.props.url)
-            .then(res => res.json())
-            .then(data => this.setState({data: data, loading: false}))
+
+    async componentDidMount() {
+        this.setState({ loading: true })
+        const response = await fetch(this.props.url)
+        const data = await response.json();
+
+        console.log(data)
+        // this.setState({ data: data, loading: false })
+
+
     }
-    
+
     render() {
         return (
+            <>
+                <h1>ghekklo</h1>
+            </>
             /**
              * Part 1: Figure out what you're returning here. You should pass the 
              * loading state and the data state through to the component needing it.
