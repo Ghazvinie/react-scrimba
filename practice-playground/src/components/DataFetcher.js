@@ -4,7 +4,7 @@ import React, { Component } from "react"
  * Challenge: Fill in the blanks in the code here (part 1) and in the App.js
  * file (part 2) until the code is working.
  * 
- * Render props are meant to allow us to re-use functionalty in multiple places.
+ * Render props are meant to allow us to re-use functionality in multiple places.
  * If your app were never to become more complicated than what we have here, it's
  * probably not worth the effort to create a separate data fetching component.
  * 
@@ -29,7 +29,7 @@ class DataFetcher extends Component {
         const data = await response.json();
 
         console.log(data)
-        // this.setState({ data: data, loading: false })
+        this.setState({ data: data, loading: false })
 
 
     }
@@ -37,7 +37,7 @@ class DataFetcher extends Component {
     render() {
         return (
             <>
-                <h1>ghekklo</h1>
+                <h1>{this.state.loading && 'Loading...'}</h1>
             </>
             /**
              * Part 1: Figure out what you're returning here. You should pass the 

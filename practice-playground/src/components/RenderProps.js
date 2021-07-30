@@ -12,7 +12,7 @@ import React from 'react';
 
 function Favorite() {
     const renderProp = (obj) => {
-        const {on, func} = obj;
+        const { on, func } = obj;
         return (
             <div>
                 <h3>Click heart to favorite</h3>
@@ -31,7 +31,7 @@ function Favorite() {
 
 function Menu() {
     const renderProp = (obj) => {
-        const {on, func} = obj;
+        const { on, func } = obj;
         return (
             <div>
                 <button onClick={func}>{on ? "Hide" : "Show"} Menu </button>
