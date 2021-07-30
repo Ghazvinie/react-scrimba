@@ -20,20 +20,28 @@ import React, { Component } from "react"
 class DataFetcher extends Component {
     state = {
         loading: false,
-        data: null
+        data: null,
+        error: null
     }
 
     async componentDidMount() {
-        this.setState({ loading: true })
-        const response = await fetch(this.props.url);
-        const data = await response.json();
-        this.setState({ data: data, loading: false });
+        try {
+            this.setState({ loading: true })
+            const response = await fetch(this.props.url);
+            const data = await response.json();
+            this.setState({ data: data, loading: false });
+        } catch (error) {
+            this.setState({
+                error: error
+            })
+        }
+
     }
 
     render() {
         return (
             <>
-            {this.props.render(this.state.loading, this.state.data)}
+            {this.props.render(this.state.loading, this.state.data, this.state.error)}
             </>
         );
     };

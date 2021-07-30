@@ -56,11 +56,12 @@ import DataFetcher from "./components/DataFetcher";
 // }
 
 function App() {
-    const renderProp = (loading, data) => {                                   
+    const renderProp = (loading, data, error) => {
         return (
-            loading ? <h1>Loading...</h1> : <p>{JSON.stringify(data)}</p>
+            error ? <h1>Error Loading Data</h1> : loading ? <h1>Loading...</h1> : <p>{JSON.stringify(data)}</p>
         );
     };
+    
     return (
         <>
             <DataFetcher url="https://swapi.dev/api/people/1/" render={renderProp} />
