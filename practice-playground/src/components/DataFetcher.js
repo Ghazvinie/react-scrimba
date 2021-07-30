@@ -25,20 +25,16 @@ class DataFetcher extends Component {
 
     async componentDidMount() {
         this.setState({ loading: true })
-        const response = await fetch(this.props.url)
+        const response = await fetch(this.props.url);
         const data = await response.json();
-
-        console.log(data)
-        this.setState({ data: data, loading: false })
-
-
+        this.setState({ data: data, loading: false });
     }
 
     render() {
         return (
-            <>
-                <h1>{this.state.loading && 'Loading...'}</h1>
-            </>
+
+                this.props.children(this.state.data, this.state.loading)
+
             /**
              * Part 1: Figure out what you're returning here. You should pass the 
              * loading state and the data state through to the component needing it.

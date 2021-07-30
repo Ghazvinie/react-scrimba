@@ -59,6 +59,12 @@ function App() {
     return (
         <>
             <DataFetcher url="https://swapi.dev/api/people/1/">
+                <h1>hsdj</h1>
+                {(props) => {
+                    return (
+                        props.loading ? <h1>Loading...</h1> : <p>{JSON.stringify(props.data)}</p>
+                    )
+                }}
                 {/**
                  * Part 2: Call the function the DataFetcher is expecting.
                  * If should receive the data and the loading state, and return the JSX
