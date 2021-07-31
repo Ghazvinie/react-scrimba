@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import App from '../App';
 
-const ThemeContext = React.createContext()
+const UserContext = React.createContext();
 
 // class Header extends React.Component {
 //     render() {
@@ -65,7 +66,7 @@ function Header() {
     return (
         <header>
             <UserContext.Consumer>
-                {username => (
+                {({ username }) => (
                     <p>Welcome, {username}!</p>
                 )}
             </UserContext.Consumer>
@@ -73,4 +74,56 @@ function Header() {
     );
 }
 
-export { Header, ThemeContextProviderClass, Button };
+class UserContextProvider extends React.Component {
+    state = {
+        username: ''
+    };
+
+    changeName = (username) => {
+        this.setState({ username })
+    };
+
+    render() {
+        return (
+            <UserContext.Provider value={{
+               username: this.state.username,
+               changeName: this.changeName
+            }}>
+                {this.props.children}
+            </UserContext.Provider>
+        );
+    };
+}
+
+// function Header() {
+//     return (
+//         <header>
+//             <UserContext.Consumer>
+//                 {({username}) => (
+//                     <p>Welcome, {username}!</p>
+//                 )}
+//             </UserContext.Consumer>
+//         </header>
+//     )
+// }
+
+// class UserContextProvider extends React.Component {
+//     state = {
+//         username: "whatev"
+//     }
+
+//     changeUsername = (username) => {
+//         this.setState({username})
+//     }
+
+//     render() {
+//         const {username} = this.state
+//         return (
+//             <UserContext.Provider value={{username, changeUsername: this.changeUsername}}>
+//                 {this.props.children}
+//             </UserContext.Provider>
+//         )
+//     }
+// }
+
+export { Header, UserContextProvider, UserContext };
