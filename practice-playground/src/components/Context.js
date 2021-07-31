@@ -14,38 +14,63 @@ const ThemeContext = React.createContext()
 
 // Header.contextType = ThemeContext;
 
-function Button() {
+// function Button() {
 
-    return (
-        <ThemeContext.Consumer>
-            {value => (
-                <button className={`${value}-theme`}>Switch Theme</button>
-            )}
-        </ThemeContext.Consumer>
-    )
+//     return (
+//         <ThemeContext.Consumer>
+//             {(value) => (
+//                 <button className={`${value.themeValue}-theme`} onClick={value.changeTheme}>Switch Theme</button>
+//             )}
+//         </ThemeContext.Consumer>
+//     )
+// }
 
-}
+// function Header() {
+//     return (
+//         <ThemeContext.Consumer>
+//             {value => (
+//                 <header className={`${value.themeValue}-theme`}>
+//                     <h2>{value.themeValue === "light" ? "Light" : "Dark"} Theme</h2>
+//                 </header>
+//             )}
+//         </ThemeContext.Consumer>
+//     );
+// }
+
+// class ThemeContextProviderClass extends React.Component {
+//     state = {
+//         themeValue: 'light'
+//     };
+
+//     changeTheme = () => {
+//         this.setState((prevState) => {
+//             return {
+//                 themeValue: prevState.themeValue === 'light' ? 'dark' : 'light'
+//             }
+//         })
+//     }
+//     render() {
+//         return (
+//             <ThemeContext.Provider value={{
+//                 themeValue: this.state.themeValue,
+//                 changeTheme: this.changeTheme
+//             }}>
+//                 {this.props.children}
+//             </ThemeContext.Provider>
+//         );
+//     }
+// }
 
 function Header() {
     return (
-        <ThemeContext.Consumer>
-            {value => (
-                <header className={`${value}-theme`}>
-                    <h2>{value === "light" ? "Light" : "Dark"} Theme</h2>
-                </header>
-            )}
-        </ThemeContext.Consumer>
+        <header>
+            <UserContext.Consumer>
+                {username => (
+                    <p>Welcome, {username}!</p>
+                )}
+            </UserContext.Consumer>
+        </header>
     );
-}
-
-class ThemeContextProviderClass extends React.Component {
-    render() {
-        return (
-            <ThemeContext.Provider value={'light'}>
-                {this.props.children}
-            </ThemeContext.Provider>
-        );
-    }
 }
 
 export { Header, ThemeContextProviderClass, Button };
