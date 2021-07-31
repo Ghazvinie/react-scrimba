@@ -3,7 +3,8 @@ import React from "react";
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
 // import  {MyHOC, Menu, Favorite}  from './components/HOC';
-import DataFetcher from "./components/DataFetcher";
+// import DataFetcher from "./components/DataFetcher";
+import { Header, Button } from './components/Context';
 
 // const App = () => (
 //     <div>
@@ -55,15 +56,24 @@ import DataFetcher from "./components/DataFetcher";
 //     );
 // }
 
+// function App() {
+//     const renderProp = (loading, data, error) => {
+//         return (
+//             error ? <h1>Error Loading Data</h1> : loading ? <h1>Loading...</h1> : <p>{JSON.stringify(data)}</p>
+//         );
+//     };
+//     return (
+//         <>
+//             <DataFetcher url="https://swapi.dev/api/people/1/" render={renderProp} />
+//         </>
+//     );
+// }
+
 function App() {
-    const renderProp = (loading, data, error) => {
-        return (
-            error ? <h1>Error Loading Data</h1> : loading ? <h1>Loading...</h1> : <p>{JSON.stringify(data)}</p>
-        );
-    };
     return (
         <>
-            <DataFetcher url="https://swapi.dev/api/people/1/" render={renderProp} />
+            <Header />
+            <Button />
         </>
     );
 }

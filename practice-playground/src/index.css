@@ -5,13 +5,22 @@ body{
     align-items: center;
 }
 
-main > h1 {
-    text-align: center;
+header {
+    padding: 20px;
 }
 
-.callout{
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 20px;
-    background-color: #C0FFFE;
+button {
+    padding: 10px;
+    border: none;
+    margin: 10px;
+}
+
+.dark-theme {
+    background-color: #333333;
+    color: whitesmoke;
+}
+
+.light-theme {
+    background-color: whitesmoke;
+    color: #333333;
 }
