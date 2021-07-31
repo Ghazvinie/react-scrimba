@@ -27,7 +27,6 @@ function Button() {
 }
 
 function Header() {
-
     return (
         <ThemeContext.Consumer>
             {value => (
@@ -39,4 +38,14 @@ function Header() {
     );
 }
 
-export { Header, ThemeContext, Button };
+class ThemeContextProviderClass extends React.Component {
+    render() {
+        return (
+            <ThemeContext.Provider value={'light'}>
+                {this.props.children}
+            </ThemeContext.Provider>
+        );
+    }
+}
+
+export { Header, ThemeContextProviderClass, Button };

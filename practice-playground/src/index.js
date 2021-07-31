@@ -4,12 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App'
 
-import { ThemeContext } from './components/Context';
+import { ThemeContextProviderClass } from './components/Context';
 
 ReactDOM.render(
-  <ThemeContext.Provider value={'light'}>
+  <ThemeContextProviderClass>
     <App />
-  </ThemeContext.Provider>,
+  </ThemeContextProviderClass>,
   document.getElementById('root'),
 );
 

@@ -69,16 +69,13 @@ import { Header, Button, ThemeContext } from './components/Context';
 //     );
 // }
 
-class App extends React.Component {
-    static contextType = ThemeContext;
-        render (){
-            return (
-                <>
-                    <Header />
-                    <Button />
-                </>
-            );
-        };
-    }
+function App() {
+    return (
+        <>
+            <Header />
+            <Button />
+        </>
+    );
+}
 
 export default App;
