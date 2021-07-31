@@ -1,5 +1,4 @@
-import React, { useReducer } from 'react';
-import App from '../App';
+import React from 'react';
 
 const UserContext = React.createContext();
 
