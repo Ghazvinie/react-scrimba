@@ -34,9 +34,8 @@ class DataFetcher extends Component {
             this.setState({
                 error: error
             })
-        }
-
-    }
+        };
+    };
 
     render() {
         return (
