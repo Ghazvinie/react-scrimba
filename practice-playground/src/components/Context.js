@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UsernameContext = React.createContext()
+const ThemeContext = React.createContext()
 
 // class Header extends React.Component {
 //     render() {
@@ -14,27 +14,29 @@ const UsernameContext = React.createContext()
 
 // Header.contextType = ThemeContext;
 
-// class Button extends React.Component {
-//     render() {
-//         console.log(this.context)
-//         return (
-//             <button className={`${this.context}-theme`}>Switch Theme</button>
-//         );
-//     };
-// }
+function Button() {
 
-// Button.contextType = ThemeContext;
+    return (
+        <ThemeContext.Consumer>
+            {value => (
+                <button className={`${value}-theme`}>Switch Theme</button>
+            )}
+        </ThemeContext.Consumer>
+    )
 
-
-class Header extends React.Component {
-    static contextType = UsernameContext;
-    render() {
-        return (
-            <header>
-                <p>Welcome, {this.context}!</p>
-            </header>
-        );    
-    };
 }
 
-export { Header, UsernameContext };
+function Header() {
+
+    return (
+        <ThemeContext.Consumer>
+            {value => (
+                <header className={`${value}-theme`}>
+                    <h2>{value === "light" ? "Light" : "Dark"} Theme</h2>
+                </header>
+            )}
+        </ThemeContext.Consumer>
+    );
+}
+
+export { Header, ThemeContext, Button };

@@ -4,12 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App'
 
-import { UsernameContext } from './components/Context';
+import { ThemeContext } from './components/Context';
 
 ReactDOM.render(
-  <UsernameContext.Provider value={'Daniel'}>
+  <ThemeContext.Provider value={'light'}>
     <App />
-  </UsernameContext.Provider>,
+  </ThemeContext.Provider>,
   document.getElementById('root'),
 );
 
