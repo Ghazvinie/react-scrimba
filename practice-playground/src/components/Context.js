@@ -1,5 +1,7 @@
 import React from 'react';
 
+const ThemeContext = React.createContext()
+
 class Header extends React.Component {
     render() {
         return (
@@ -12,10 +14,13 @@ class Header extends React.Component {
 
 class Button extends React.Component {
     render() {
+        console.log(this.context)
         return (
-            <button className="light-theme">Switch Theme</button>
+            <button className={`${this.context}-theme`}>Switch Theme</button>
         );
     };
 }
 
-export { Header, Button };
+Button.contextType = ThemeContext;
+
+export { Header, Button, ThemeContext };

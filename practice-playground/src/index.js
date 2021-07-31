@@ -4,8 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App'
 
+import { ThemeContext } from './components/Context';
+
 ReactDOM.render(
-  <App />,
+  <ThemeContext.Provider value={'dark'}>
+    <App />
+  </ThemeContext.Provider>,
   document.getElementById('root'),
 );
 
