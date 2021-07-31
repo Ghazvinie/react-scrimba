@@ -67,7 +67,9 @@ function Header() {
         <header>
             <UserContext.Consumer>
                 {({ username }) => (
-                    <p>Welcome, {username}!</p>
+                    <p>
+                        Welcome, {username}!
+                    </p>
                 )}
             </UserContext.Consumer>
         </header>
@@ -79,51 +81,20 @@ class UserContextProvider extends React.Component {
         username: ''
     };
 
-    changeName = (username) => {
-        this.setState({ username })
+    changeUsername = (username) => {
+        this.setState({ username: username });
     };
 
     render() {
         return (
             <UserContext.Provider value={{
-               username: this.state.username,
-               changeName: this.changeName
+                username: this.state.username,
+                changeUsername: this.changeUsername
             }}>
                 {this.props.children}
             </UserContext.Provider>
         );
     };
 }
-
-// function Header() {
-//     return (
-//         <header>
-//             <UserContext.Consumer>
-//                 {({username}) => (
-//                     <p>Welcome, {username}!</p>
-//                 )}
-//             </UserContext.Consumer>
-//         </header>
-//     )
-// }
-
-// class UserContextProvider extends React.Component {
-//     state = {
-//         username: "whatev"
-//     }
-
-//     changeUsername = (username) => {
-//         this.setState({username})
-//     }
-
-//     render() {
-//         const {username} = this.state
-//         return (
-//             <UserContext.Provider value={{username, changeUsername: this.changeUsername}}>
-//                 {this.props.children}
-//             </UserContext.Provider>
-//         )
-//     }
-// }
 
 export { Header, UserContextProvider, UserContext };

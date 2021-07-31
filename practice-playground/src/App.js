@@ -71,12 +71,14 @@ import { Header, UserContext } from './components/Context';
 
 class App extends React.Component {
     state = {
-        username: ""
+        username: ''
     };
 
     handleChange = (e) => {
-        const { name, value } = e.target
-        this.setState({ [name]: value })
+        const { value } = e.target;
+        this.setState({
+            username: value
+        });
     };
 
     render() {
@@ -85,24 +87,23 @@ class App extends React.Component {
                 <Header />
                 <main>
                     <UserContext.Consumer>
-                        {({ username, changeName }) => (
+                        {({ username, changeUsername }) => (
                             <>
                                 <p className="main">No new notifications, {username}! 🎉</p>
                                 <input
-                                    type="text"
-                                    name="username"
-                                    placeholder="New username"
-                                    value={this.state.newUsername}
-                                    onChange={this.handleChange}
-                                />
-                                <button onClick={() => changeName(this.state.username)}>Change Username</button>
+                                    type='text'
+                                    name='username'
+                                    placeholder='New Username'
+                                    value={this.state.username}
+                                    onChange={this.handleChange} />
+                                <button onClick={() => changeUsername(this.state.username)}>Change Username</button>
                             </>
                         )}
                     </UserContext.Consumer>
                 </main>
             </div>
-        );
-    };
+        )
+    }
 }
 
 export default App;
