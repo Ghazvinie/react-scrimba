@@ -1,10 +1,11 @@
+import { resetWarningCache } from "prop-types";
 import React from "react";
 
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
 // import  {MyHOC, Menu, Favorite}  from './components/HOC';
 // import DataFetcher from "./components/DataFetcher";
-import { Header, Button } from './components/Context';
+import { Header, Button, UsernameContext } from './components/Context';
 
 // const App = () => (
 //     <div>
@@ -69,13 +70,18 @@ import { Header, Button } from './components/Context';
 //     );
 // }
 
-function App() {
-    return (
-        <>
-            <Header />
-            <Button />
-        </>
-    );
-}
+class App extends React.Component {
+    static contextType = UsernameContext;
+        render (){
+            return (
+                <>
+                    <Header />
+                    <main>
+                        <p className='main'>No new notifications, {this.context}! 🎉</p>
+                    </main>
+                </>
+            );
+        };
+    }
 
 export default App;
