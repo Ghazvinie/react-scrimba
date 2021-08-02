@@ -7,18 +7,20 @@ function App() {
 
     function handleChange(e) {
         const { value, name } = e.target;
-        setInputData({
-            ...inputData, 
-            [name] : value
-        });
-        console.log(inputData)
+        setInputData((prevInputData) => ({
+            ...inputData,
+            [name]: value
+        }));
+        console.log(inputData);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        setContactsData([...contactsData, inputData]);
+        setContactsData((prevContactsData) => [...prevContactsData, inputData]);
         console.log(contactsData);
     }
+
+    const contacts = contactsData.map(contact => <h2>{contact.firstName} {contact.lastName}</h2>);
 
     return (
         <>
@@ -38,9 +40,9 @@ function App() {
                 <br />
                 <button>Add contact</button>
             </form>
-            {/*{contacts}*/}
+            {contacts}
         </>
-    )
+    );
 }
 
 export default App;
