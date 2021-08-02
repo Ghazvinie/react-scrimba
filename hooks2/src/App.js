@@ -1,32 +1,46 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 
 function App() {
-    const [count, setCount] = useState(0)
-    
+    const [inputData, setInputData] = useState({ firstName: "", lastName: "" })
+    const [contactsData, setContactsData] = useState([])
+
+    function handleChange(e) {
+        const { value, name } = e.target;
+        setInputData({
+            ...inputData, 
+            [name] : value
+        });
+        console.log(inputData)
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setContactsData([...contactsData, inputData]);
+        console.log(contactsData);
+    }
+
     return (
-        <div>
-            <h1>{count}</h1>
-            <button onClick={() => setCount(count + 1)}>Change!</button>
-        </div>
+        <>
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <input
+                    placeholder="First Name"
+                    name="firstName"
+                    value={inputData.firstName}
+                    onChange={handleChange}
+                />
+                <input
+                    placeholder="Last Name"
+                    name="lastName"
+                    value={inputData.lastName}
+                    onChange={handleChange}
+                />
+                <br />
+                <button>Add contact</button>
+            </form>
+            {/*{contacts}*/}
+        </>
     )
 }
-
-// class App extends React.Component {
-//     constructor() {
-//         super()
-//         this.state = {
-//             answer: "Yes"
-//         }
-//     }
-    
-//     render() {
-//         return (
-//             <div>
-//                 <h1>Is state important to know? {this.state.answer}</h1>
-//             </div>
-//         )
-//     }
-// }
 
 export default App;
