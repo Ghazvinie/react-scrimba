@@ -52,7 +52,7 @@ const App = () => {
         if (gameRunning) return;
         if (timerLength === '') return;
         inputRef.current.disabled = false;
-        testRef.current.innerText = 'HURRRRRRY UUUUUPPPP!!!'
+        testRef.current.innerText = 'HURRRRRRY UUUUUPPPP!!!';
         inputRef.current.focus();
         setWordCount(0);
         setText('');
