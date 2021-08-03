@@ -5,29 +5,28 @@ const App = () => {
     const [timer, setTimer] = useState(null);
     const [timerLength, setTimerLength] = useState('');
     const [gameRunning, setGameRunning] = useState(false);
+    const [wordCount, setWordCount] = useState(0);
 
     function handleTextChange(e) {
+        if (!gameRunning) {
+            return setText('');
+        };
         const { value } = e.target;
         setText(value);
-        if (!gameRunning) {
-            setText(null);
-        };
-    }
-
-    function countWords(text) {
-        const numWords = text
-            .trim()
-            .split(' ')
-            .filter(element => element !== '')
-            .length;
-
-        return numWords;
     }
 
     useEffect(() => {
         if (timer <= 0 || !timer) {
+            const numWords = text
+                .trim()
+                .split(' ')
+                .filter(element => element !== '')
+                .length;
+
+            setWordCount(numWords);
             return setGameRunning(false);
-        }
+        };
+
         setTimeout(() => {
             setTimer((prevTime) => prevTime - 1);
         }, 1000);
@@ -40,24 +39,23 @@ const App = () => {
         setTimerLength(value);
     }
 
-    function handleStartGame(){
+    function handleStartGame() {
         if (gameRunning) return;
+        setWordCount(0);
         setText('');
-        console.log(text)
         setGameRunning(true);
         setTimer(timerLength);
+
     }
-
-
 
     return (
         <div>
             <h1>Crazy Game!</h1>
-            <textarea value={text} name='textArea' onChange={(e) => gameRunning && handleTextChange(e)} />
+            <textarea value={text} name='textArea' onChange={(e) => handleTextChange(e)} />
             <input type='text' value={timerLength} onChange={(e) => timerLengthHandle(e)} /> Set Timer
             <h4>Time Remaining: {timer}</h4>
             <button onClick={() => handleStartGame()}>Start</button>
-            <h1>Word Count: {timer === 0 && !gameRunning && countWords(text)}</h1>
+            <h1>Word Count: {wordCount}</h1>
         </div>
     );
 }
