@@ -51,10 +51,10 @@ const App = () => {
     return (
         <div>
             <h1>Crazy Game!</h1>
-            <textarea value={text} name='textArea' onChange={(e) => handleTextChange(e)} />
+            <textarea value={text} name='textArea' onChange={(e) => handleTextChange(e)} disabled={!gameRunning}/>
             <input type='text' value={timerLength} onChange={(e) => timerLengthHandle(e)} /> Set Timer
             <h4>Time Remaining: {timer}</h4>
-            <button onClick={() => handleStartGame()}>Start</button>
+            <button onClick={() => handleStartGame()} disabled={gameRunning}>Start</button>
             <h1>Word Count: {wordCount}</h1>
         </div>
     );

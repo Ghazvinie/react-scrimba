@@ -43,3 +43,9 @@ input {
     background-color: #00b800;
     width: 100px;
 }
+textarea:disabled{
+    background-color: #a5a2a2;
+}
+button:disabled {
+    cursor: not-allowed;
+}
