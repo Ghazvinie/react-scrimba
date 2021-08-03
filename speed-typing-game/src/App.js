@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const App = () => {
     const [text, setText] = useState('');
@@ -6,6 +6,9 @@ const App = () => {
     const [timerLength, setTimerLength] = useState('');
     const [gameRunning, setGameRunning] = useState(false);
     const [wordCount, setWordCount] = useState(0);
+    const inputRef = useRef(null);
+    const testRef = useRef(null);
+
 
     function handleTextChange(e) {
         if (!gameRunning) {
@@ -25,6 +28,7 @@ const App = () => {
 
             setWordCount(numWords);
             setTimerLength('');
+            testRef.current.innerText = 'GET READY! :)'
             return setGameRunning(false);
         };
 
@@ -46,6 +50,10 @@ const App = () => {
 
     function handleStartGame() {
         if (gameRunning) return;
+        if (timerLength === '') return;
+        inputRef.current.disabled = false;
+        testRef.current.innerText = 'HURRRRRRY UUUUUPPPP!!!'
+        inputRef.current.focus();
         setWordCount(0);
         setText('');
         setGameRunning(true);
@@ -55,8 +63,8 @@ const App = () => {
 
     return (
         <div>
-            <h1>Crazy Game!</h1>
-            <textarea value={text} name='textArea' onChange={(e) => handleTextChange(e)} disabled={!gameRunning}/>
+            <h1 ref={testRef}>GET READY! :)</h1>
+            <textarea ref={inputRef} value={text} name='textArea' onChange={(e) => handleTextChange(e)} disabled={!gameRunning}/>
             <input type='text' value={timerLength} onChange={(e) => timerLengthHandle(e)} /> Set Timer
             <h4>Time Remaining: {timer}</h4>
             <button onClick={() => handleStartGame()} disabled={gameRunning}>Start</button>
