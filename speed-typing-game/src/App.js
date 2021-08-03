@@ -24,6 +24,7 @@ const App = () => {
                 .length;
 
             setWordCount(numWords);
+            setTimerLength('');
             return setGameRunning(false);
         };
 
@@ -36,6 +37,10 @@ const App = () => {
     function timerLengthHandle(e) {
         if (gameRunning) return;
         const { value } = e.target;
+        if (isNaN(value)) {
+            alert('Please Enter A Valid Number');
+            return;
+        }
         setTimerLength(value);
     }
 
