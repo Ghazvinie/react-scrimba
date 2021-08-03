@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 function App() {
@@ -21,6 +21,11 @@ function App() {
     }
 
     const contacts = contactsData.map(contact => <h2>{contact.firstName} {contact.lastName}</h2>);
+
+
+    useEffect(() => {
+         console.log('input data changed')
+    }, [contactsData])
 
     return (
         <>
