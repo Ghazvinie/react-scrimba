@@ -1,14 +1,12 @@
 import React from "react";
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
-
 
 const App = () => (
     <div>
-    <Header />
-    <MainContent />
-    <Footer />
+        <h1>Crazy Game!</h1>
+        <textarea />
+        <h4>Time Remaining</h4>
+        <button>Start</button>
+        <h1>Word Count</h1>
     </div>
 )
 
