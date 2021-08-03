@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const App = () => {
     const [text, setText] = useState('');
-    const [time, setTime] = useState(null);
-    const [timeSet, setTimeSet] = useState('');
+    const [timer, setTimer] = useState(null);
+    const [timerLength, setTimerLength] = useState('');
+    const [gameRunning, setGameRunning] = useState(false);
 
     function handleTextChange(e) {
         const { value } = e.target;
@@ -21,31 +22,34 @@ const App = () => {
     }
 
     useEffect(() => {
-        if (time <= 0 || !time) return;
+        if (timer <= 0 || !timer) {
+            return setGameRunning(false);
+        }
         setTimeout(() => {
-            setTime((prevTime) => prevTime - 1);
+            setTimer((prevTime) => prevTime - 1);
         }, 1000);
 
-    }, [time]);
+    }, [timer]);
 
-    function setTimer(e) {
-        if (time > 0 && time != null) return;
+    function timerLengthHandle(e) {
+        if (gameRunning) return;
         const { value } = e.target;
-        setTimeSet(value);
+        setTimerLength(value);
     }
 
-    function handleSetTime(){
-        if (time > 0) return;
-        setTime(timeSet);
+    function handleStartGame(){
+        if (gameRunning) return;
+        setGameRunning(true);
+        setTimer(timerLength);
     }
 
     return (
         <div>
             <h1>Crazy Game!</h1>
             <textarea value={text} name='textArea' onChange={(e) => handleTextChange(e)} />
-            <input type='text' value={timeSet} onChange={(e) => setTimer(e)} /> Set Timer
-            <h4>Time Remaining: {time}</h4>
-            <button onClick={() => handleSetTime()}>Start</button>
+            <input type='text' value={timerLength} onChange={(e) => timerLengthHandle(e)} /> Set Timer
+            <h4>Time Remaining: {timer}</h4>
+            <button onClick={() => handleStartGame()}>Start</button>
             <h1>Word Count: {countWords(text)}</h1>
         </div>
     );
