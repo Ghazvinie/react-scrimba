@@ -9,6 +9,9 @@ const App = () => {
     function handleTextChange(e) {
         const { value } = e.target;
         setText(value);
+        if (!gameRunning) {
+            setText(null);
+        };
     }
 
     function countWords(text) {
@@ -39,18 +42,22 @@ const App = () => {
 
     function handleStartGame(){
         if (gameRunning) return;
+        setText('');
+        console.log(text)
         setGameRunning(true);
         setTimer(timerLength);
     }
 
+
+
     return (
         <div>
             <h1>Crazy Game!</h1>
-            <textarea value={text} name='textArea' onChange={(e) => handleTextChange(e)} />
+            <textarea value={text} name='textArea' onChange={(e) => gameRunning && handleTextChange(e)} />
             <input type='text' value={timerLength} onChange={(e) => timerLengthHandle(e)} /> Set Timer
             <h4>Time Remaining: {timer}</h4>
             <button onClick={() => handleStartGame()}>Start</button>
-            <h1>Word Count: {countWords(text)}</h1>
+            <h1>Word Count: {timer === 0 && !gameRunning && countWords(text)}</h1>
         </div>
     );
 }
