@@ -38,3 +38,8 @@ textarea {
     background: #00b800;
     padding: 10px;
 }
+input {
+    margin: 10px;
+    background-color: #00b800;
+    width: 100px;
+}
