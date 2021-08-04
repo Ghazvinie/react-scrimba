@@ -10,9 +10,6 @@ function useGameHook() {
     const inputRef = useRef(null);
     const testRef = useRef(null);
 
-
-
-
     function handleTextChange(e) {
         if (!gameRunning) {
             return setText('');
