@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 
 // import { State, Card, RoundedImg } from './components/State';
 // import Callout from './components/Callout';
@@ -69,41 +69,32 @@ import { Header, UserContext } from './components/Context';
 //     );
 // }
 
-class App extends React.Component {
-    state = {
-        username: ''
-    };
+function App() {
+    const [username, setUsername] = useState('');
 
-    handleChange = (e) => {
+    const handleChange = (e) => {
         const { value } = e.target;
-        this.setState({
-            username: value
-        });
+        console.log(value)
+        setUsername(value);
     };
 
-    render() {
-        return (
-            <div>
-                <Header />
-                <main>
-                    <UserContext.Consumer>
-                        {({ username, changeUsername }) => (
-                            <>
-                                <p className="main">No new notifications, {username}! 🎉</p>
-                                <input
-                                    type='text'
-                                    name='username'
-                                    placeholder='New Username'
-                                    value={this.state.username}
-                                    onChange={this.handleChange} />
-                                <button onClick={() => changeUsername(this.state.username)}>Change Username</button>
-                            </>
-                        )}
-                    </UserContext.Consumer>
-                </main>
-            </div>
-        )
-    }
+    const { changeUsername } = useContext(UserContext);
+
+    return (
+        <div>
+            <Header />
+            <main>
+                <p className="main">No new notifications, {username}! 🎉</p>
+                <input
+                    type='text'
+                    name='username'
+                    placeholder='New Username'
+                    value={username}
+                    onChange={(e) => handleChange(e)} />
+            </main>
+        </div>
+    )
+
 }
 
 export default App;

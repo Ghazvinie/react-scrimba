@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 
 const UserContext = React.createContext();
 
@@ -62,38 +62,32 @@ const UserContext = React.createContext();
 // }
 
 function Header() {
+    const { username } = useContext(UserContext);
     return (
         <header>
-            <UserContext.Consumer>
-                {({ username }) => (
-                    <p>
-                        Welcome, {username}!
-                    </p>
-                )}
-            </UserContext.Consumer>
+            <p>
+                Welcome, {username}!
+            </p>
         </header>
     );
 }
 
-class UserContextProvider extends React.Component {
-    state = {
-        username: ''
+function UserContextProvider(props) {
+    const [username, setUsername] = useState('');
+
+    const changeUsername = (username) => {
+        setUsername(username);
     };
 
-    changeUsername = (username) => {
-        this.setState({ username: username });
-    };
 
-    render() {
-        return (
-            <UserContext.Provider value={{
-                username: this.state.username,
-                changeUsername: this.changeUsername
-            }}>
-                {this.props.children}
-            </UserContext.Provider>
-        );
-    };
+    return (
+        <UserContext.Provider value={{
+            username,
+            changeUsername
+        }}>
+            {props.children}
+        </UserContext.Provider>
+    );
 }
 
 export { Header, UserContextProvider, UserContext };
