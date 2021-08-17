@@ -12,17 +12,16 @@ function Profile() {
                 <li><Link to="/profile/info">Profile Info</Link></li>
                 <li><Link to="/profile/settings">Profile Settings</Link></li>
             </ul>
-            
             <Switch>
                 <Route path="/profile/info">
-                    <Info/>
+                    <Info />
                 </Route>
                 <Route path="/profile/settings">
-                    <Settings/>
+                    <Settings />
                 </Route>
             </Switch>
         </div>
-    )
+    );
 }
 
 export default Profile;
