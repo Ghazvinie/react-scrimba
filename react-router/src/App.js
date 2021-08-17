@@ -45,12 +45,11 @@ function App() {
     return (
         <div>
             <Header />
-
             <Switch>
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/services" >
+                <Route exact path="/services" >
                     <ServicesList listData={servicesData} />
                 </Route>
                 <Route path="/services/:serviceId" >
