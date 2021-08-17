@@ -37,20 +37,24 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import ServicesList from "./pages/services/servicesList";
 import ServiceDetail from "./pages/services/servicesDetail";
+import servicesData from './pages/services/servicesData';
 
-import {Switch, Route} from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 
-function App() {    
+function App() {
     return (
         <div>
             <Header />
-            
+
             <Switch>
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route exact path="/services" >
-                    <ServicesList />
+                <Route path="/services" >
+                    <ServicesList listData={servicesData} />
+                </Route>
+                <Route path="/services/:serviceId" >
+                    <ServiceDetail />
                 </Route>
             </Switch>
         </div>
