@@ -1,20 +1,18 @@
 import React from "react";
 import { Link, Switch, Route } from 'react-router-dom';
+import './App.css'
 import Home from './components/Home';
 import About from './components/About';
 import Contacts from "./components/Contacts";
-import Profile from "./pages/Profile";
+import Profile from "./pages/profile/Profile";
+
+import Header from "./components/Header";
 
 const App = () => (
-    <div>
-        <nav>
-            <ul><Link to='/'>Home</Link></ul>
-            <ul><Link to='/about'>About</Link></ul>
-            <ul><Link to='/contacts'>Contacts</Link></ul>
-            <ul><Link to='/profile'>Profile</Link></ul>
-        </nav>
-
-        <Switch>
+ <div>
+     <Header />
+    
+     <Switch>
             <Route exact path='/'>
                 <Home />
             </Route>
@@ -24,13 +22,12 @@ const App = () => (
             <Route exact path='/contacts'>
                 <Contacts />
             </Route>
-            <Route exact path='/profile'>
+            <Route path='/profile'>
                 <Profile />
             </Route>
         </Switch>
-
-
-    </div>
+ </div>
 )
 
 export default App;
+
