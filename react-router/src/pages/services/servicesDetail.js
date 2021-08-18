@@ -5,7 +5,7 @@ import servicesData from "./servicesData";
 function ServiceDetail(props) {
     const { serviceId } = useParams();
     const service = servicesData.find((element) => element._id === serviceId);
-    console.log(service)
+    console.log(serviceId)
     return (
         <>
             <h1>Service Detail Page</h1>

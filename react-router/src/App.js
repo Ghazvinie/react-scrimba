@@ -52,7 +52,7 @@ function App() {
                 <Route exact path="/services" >
                     <ServicesList listData={servicesData} />
                 </Route>
-                <Route path="/services/:serviceId" >
+                <Route path="/services/:serviceId/" >
                     <ServiceDetail />
                 </Route>
             </Switch>
