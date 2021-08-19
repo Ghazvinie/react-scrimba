@@ -5,8 +5,7 @@ import Settings from "../Settings";
 import Info from "../Info";
 
 function Profile() {
-
-    const {path, url} = useRouteMatch();
+    const { path, url } = useRouteMatch();
     return (
         <div>
             <h1>Profile Page</h1>
