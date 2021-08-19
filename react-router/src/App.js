@@ -55,7 +55,7 @@ function App() {
                 <Route path="/services/:serviceId/" >
                     <ServiceDetail />
                 </Route>
-                <Route>
+                <Route path='/profile'>
                     <Profile />
                 </Route>
             </Switch>

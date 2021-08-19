@@ -1,10 +1,12 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
 import Settings from "../Settings";
 import Info from "../Info";
 
 function Profile() {
+
+    console.log(useRouteMatch())
     return (
         <div>
             <h1>Profile Page</h1>
