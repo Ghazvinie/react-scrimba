@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import servicesData from "./servicesData";
 
 function ServiceDetail(props) {
+    console.log(useParams())
     const { serviceId } = useParams();
     const service = servicesData.find((element) => element._id === serviceId);
-    console.log(serviceId)
     return (
         <>
             <h1>Service Detail Page</h1>
