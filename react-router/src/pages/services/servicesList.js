@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function ServicesList(props) {
+    const location = useLocation();
+    console.log(location)
     return (
-
         <div>
             <h1>Services List Page</h1>
             <ul>
