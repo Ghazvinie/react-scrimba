@@ -65,31 +65,60 @@ import './App.css'
 
 // export default App;
 
-import React, { useState } from 'react';
-import { Redirect, Link, Switch, Route } from 'react-router-dom';
+// import React, { useState } from 'react';
+// import { Redirect, Link, Switch, Route } from 'react-router-dom';
+
+// function App() {
+//     const [isLoggedIn, setIsLoggedIn] = useState(false);
+//     return (
+//         <div>
+//             <Link to='/'>Home</Link>
+//             <Link to='private'>Private</Link>
+
+//             <Switch>
+//                 <Route exact path='/'>
+//                     <h1>Home Page - Anyone</h1>
+//                 </Route>
+//                 <Route path='/private'>
+//                     {
+//                     isLoggedIn ? 
+//                     <h1>Protected Page</h1> :
+//                     <Redirect to='/'/>
+//                 }
+
+//                 </Route>
+//             </Switch>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+import React from 'react';
+import { Link, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Products from './components/Products';
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <div>
-            <Link to='/'>Home</Link>
-            <Link to='private'>Private</Link>
+            <nav>
+                <Link to='/'>Home</Link>
+                <Link to='/products'>Products</Link>
+            </nav>
 
             <Switch>
                 <Route exact path='/'>
-                    <h1>Home Page - Anyone</h1>
+                    <Home />
                 </Route>
-                <Route path='/private'>
-                    {
-                    isLoggedIn ? 
-                    <h1>Protected Page</h1> :
-                    <Redirect to='/'/>
-                }
-                    
+                <Route path='/products'>
+                    <Products />
                 </Route>
             </Switch>
+
         </div>
     )
 }
+
 
 export default App;
