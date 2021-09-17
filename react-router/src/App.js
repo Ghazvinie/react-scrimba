@@ -98,6 +98,7 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Products from './components/Products';
+import ProductDetail from './pages/products/ProductDetail';
 
 function App() {
     return (
@@ -111,13 +112,16 @@ function App() {
                 <Route exact path='/'>
                     <Home />
                 </Route>
-                <Route path='/products'>
+                <Route exact path='/products'>
                     <Products />
+                </Route>
+                <Route path='/products/:id'>
+                    <ProductDetail />
                 </Route>
             </Switch>
 
         </div>
-    )
+    );
 }
 
 

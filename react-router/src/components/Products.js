@@ -1,23 +1,21 @@
 import React from "react";
 import productsData from '../pages/products/productsData';
+import { Link } from 'react-router-dom';
 
 function Products() {
     return (
         <div>
             <h1>Products Page</h1>
 
-            <ul>
-                {productsData.map(product => {
-                    return (
-                        <li key={product.id}>
-                            <h3>£{product.price} {product.name}</h3>
-                            <p>{product.description}</p>
-                        </li>
-                    )
-                })}
-            </ul>
+            {productsData.map(product => {
+                return (
+                    <div key={product.id}>
+                        <Link to={`/products/${product.id}`}><h3>{product.name}</h3></Link>
+                    </div>
+                );
+            })}
         </div>
-    )
+    );
 }
 
 export default Products;
