@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Image from "../components/Image";
 import { Context } from '../components/Provider';
 import getClass from "../utils/getClass";
