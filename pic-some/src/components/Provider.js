@@ -17,10 +17,10 @@ function ContextProvider(props) {
     const toggleFave = (id) => {
         const updatedArr = photos.map((image) => {
             if (image.id === id) {
-                image.isFavorite = Number(id);
+                image.isFavorite = !image.isFavorite 
             }
             return image;
-        })
+        });
         setPhotos(updatedArr);
     }
 
