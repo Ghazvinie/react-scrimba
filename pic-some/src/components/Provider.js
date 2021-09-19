@@ -14,8 +14,18 @@ function ContextProvider(props) {
         fetchApi();
     }, []);
 
+    const toggleFave = (id) => {
+        const updatedArr = photos.map((image) => {
+            if (image.id === id) {
+                image.isFavorite = Number(id);
+            }
+            return image;
+        })
+        setPhotos(updatedArr);
+    }
+
     return (
-        <Context.Provider value={photos}>
+        <Context.Provider value={{photos, toggleFave}}>
             {props.children}
         </Context.Provider>
     );
