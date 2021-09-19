@@ -4,7 +4,7 @@ import { Context } from '../components/Provider';
 
 function Image({ className, img }) {
     const [hover, setHover] = useState(false);
-    const { toggleFave, addToCart, cartItems } = useContext(Context);
+    const { toggleFave, addToCart, cartItems, removeFromCart } = useContext(Context);
 
     const heartIcon =
         <>
@@ -26,7 +26,7 @@ function Image({ className, img }) {
         <>
             {
                 inCart(img) ?
-                    <i className="ri-shopping-cart-fill cart"></i>
+                    <i className="ri-shopping-cart-fill cart" onClick={() => removeFromCart(img)}></i>
                     : hover ?
                         <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>
                         : ''
