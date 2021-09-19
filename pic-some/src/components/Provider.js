@@ -4,6 +4,7 @@ const Context = React.createContext();
 
 function ContextProvider(props) {
     const [photos, setPhotos] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -22,10 +23,18 @@ function ContextProvider(props) {
             return image;
         });
         setPhotos(updatedArr);
-    }
+    };
+
+
+    const addToCart = (image) => {
+        setCartItems((prevItems) => [
+            ...prevItems, image
+        ]);
+
+    };
 
     return (
-        <Context.Provider value={{photos, toggleFave}}>
+        <Context.Provider value={{photos, toggleFave, addToCart, cartItems}}>
             {props.children}
         </Context.Provider>
     );
