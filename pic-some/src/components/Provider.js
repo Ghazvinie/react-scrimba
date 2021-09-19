@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const Context = React.createContext();
 
-function ContextProvider({ children }) {
-    const [photos, setPhotos] = useState();
+function ContextProvider(props) {
+    const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -14,10 +14,9 @@ function ContextProvider({ children }) {
         fetchApi();
     }, []);
 
-
     return (
         <Context.Provider value={photos}>
-            {children}
+            {props.children}
         </Context.Provider>
     );
 }
