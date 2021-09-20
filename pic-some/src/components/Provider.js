@@ -48,7 +48,7 @@ function ContextProvider(props) {
         setTimeout(() => {
             setCartItems([]);
             setOrdering('Order Placed!');
-        }, 3000)
+        }, 3000);
     }
 
     return (
