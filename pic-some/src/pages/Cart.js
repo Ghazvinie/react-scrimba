@@ -10,8 +10,6 @@ function Cart() {
     ));
 
     const total = (cartItems.length * 5.99).toLocaleString("en-US", { style: "currency", currency: "GBP" });
-    const orderText = ordering === 'ordering' ? 'Ordering...'
-        : ordering === 'noOrder' ? 'Place Order' : 'Order Placed!'
 
     return (
         <main className="cart-page">
@@ -20,7 +18,7 @@ function Cart() {
             <p className="total-cost">Total: {total}</p>
             <div className="order-button">
                 <button onClick={() => placeOrder()}>
-                    {orderText}
+                    {ordering}
                 </button>
             </div>
         </main>

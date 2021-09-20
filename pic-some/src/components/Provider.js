@@ -5,7 +5,7 @@ const Context = React.createContext();
 function ContextProvider(props) {
     const [photos, setPhotos] = useState([]);
     const [cartItems, setCartItems] = useState([]);
-    const [ordering, setOrdering] = useState('noOrder');
+    const [ordering, setOrdering] = useState('Place Order');
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -44,10 +44,10 @@ function ContextProvider(props) {
     };
 
     const placeOrder = () => {
-        setOrdering('ordering');
+        setOrdering('Ordering...');
         setTimeout(() => {
             setCartItems([]);
-            setOrdering('placed');
+            setOrdering('Order Placed!');
         }, 3000)
     }
 
