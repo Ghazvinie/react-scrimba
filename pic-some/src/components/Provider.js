@@ -5,6 +5,7 @@ const Context = React.createContext();
 function ContextProvider(props) {
     const [photos, setPhotos] = useState([]);
     const [cartItems, setCartItems] = useState([]);
+    const [ordering, setOrdering] = useState('noOrder');
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -42,8 +43,16 @@ function ContextProvider(props) {
         setCartItems(filtered);
     };
 
+    const placeOrder = () => {
+        setOrdering('ordering');
+        setTimeout(() => {
+            setCartItems([]);
+            setOrdering('placed');
+        }, 3000)
+    }
+
     return (
-        <Context.Provider value={{photos, toggleFave, addToCart, cartItems, removeFromCart, removeCartItem}}>
+        <Context.Provider value={{photos, toggleFave, addToCart, cartItems, removeFromCart, removeCartItem, placeOrder, ordering}}>
             {props.children}
         </Context.Provider>
     );
