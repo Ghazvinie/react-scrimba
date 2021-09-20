@@ -4,8 +4,6 @@ import { Context } from "./Provider";
 function CartItem({ item }) {
     const { removeCartItem } = useContext(Context);
 
-
-
     return (
         <div className="cart-item">
             <i className="ri-delete-bin-line" onClick={() => removeCartItem(item)}></i>
