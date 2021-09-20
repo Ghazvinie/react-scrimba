@@ -25,6 +25,4 @@ function useHover() {
     return [hover, ref];
 }
 
-
-
 export default useHover;
