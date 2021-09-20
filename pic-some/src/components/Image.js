@@ -41,17 +41,6 @@ function Image({ className, img }) {
             <img src={img.url} className='image-grid' />
             {heartIcon}
             {cartIcon}
-            {/* // img.isFavorite ?
-                //     <>
-                //         <i className="ri-heart-fill favorite" onClick={() => toggleFave(img.id)}></i>
-                //     </>
-                //     : hover && !img.isFavorite ?
-                //         <>
-                //             <i className="ri-heart-line favorite" onClick={() => toggleFave(img.id)}></i>
-                //             <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>
-                //         </>
-                //         : <></> */}
-
         </div >
     );
 }
