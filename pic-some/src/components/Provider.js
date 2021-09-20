@@ -37,8 +37,13 @@ function ContextProvider(props) {
         setCartItems(filtered);
     };
 
+    const removeCartItem = (toRemove) => {
+        const filtered = cartItems.filter(item => toRemove.id !== item.id)
+        setCartItems(filtered);
+    };
+
     return (
-        <Context.Provider value={{photos, toggleFave, addToCart, cartItems, removeFromCart}}>
+        <Context.Provider value={{photos, toggleFave, addToCart, cartItems, removeFromCart, removeCartItem}}>
             {props.children}
         </Context.Provider>
     );
