@@ -33,6 +33,18 @@ function changeCount(amount){
     };
 }
 
+function addFavieThing(thing){
+    return {
+        type: 'ADD_FAVIE_THING',
+        payload: thing
+    };
+}
+
+const initialState = {
+    count : 0,
+    favieThings : []
+};
+
 function reducer(state = { count: 0 }, action) {
 
     switch (action.type) {
@@ -56,6 +68,11 @@ function reducer(state = { count: 0 }, action) {
             return {
                 count: Math.round(state.count / 2)
             }
+        case 'ADD_FAVIE_THING':
+            return {
+                ...state,
+                favieThings : [...state.favieThings, action.payload]
+            }    
         default:
             return state
     }
