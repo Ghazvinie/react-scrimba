@@ -1,10 +1,10 @@
 // import redux from 'redux';
 
-console.log('ell')
 // Redux action
-function increment() {
+function increment(amount) {
     return {
-        type: 'INCREMENT'
+        type: 'INCREMENT',
+        payload: amount
     };
 }
 
@@ -16,19 +16,30 @@ function decrement() {
 
 function double() {
     return {
-        type: 'double'
+        type: 'DOUBLE'
     };
 }
 
 function halve() {
     return {
-        type: 'halve'
+        type: 'HALVE'
+    };
+}
+
+function changeCount(amount){
+    return {
+        type: 'CHANGE_COUNT',
+        payload: amount
     };
 }
 
 function reducer(state = { count: 0 }, action) {
 
     switch (action.type) {
+        case 'CHANGE_COUNT':
+        return {
+            count: state.count + action.payload
+        }
         case 'INCREMENT':
             return {
                 count: state.count + 1
