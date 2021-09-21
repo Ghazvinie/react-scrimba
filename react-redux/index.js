@@ -26,32 +26,61 @@ function halve() {
     };
 }
 
-function changeCount(amount){
+function changeCount(amount) {
     return {
         type: 'CHANGE_COUNT',
         payload: amount
     };
 }
 
-function addFavieThing(thing){
+function addFavieThing(thing) {
     return {
         type: 'ADD_FAVIE_THING',
         payload: thing
     };
 }
 
+function removeFavieThing(thing) {
+    return {
+        type: 'REMOVE_FAVIE_THING',
+        payload: thing
+    };
+}
+
+function addYoutubeTitle(title) {
+    return {
+        type: 'ADD_YOUTUBE_TITLE',
+        payload: title
+    };
+}
+
+function upYoutubeCount(num) {
+    return {
+        type: 'UP_YOUTUBE_COUNT',
+        payload: num
+    };
+}
+
 const initialState = {
-    count : 0,
-    favieThings : []
+    count: 0,
+    favoriteThings: [],
+    youtubeVideo: {
+        title: "",
+        viewCount: 0,
+        votes: {
+            up: 0,
+            down: 0
+        }
+    }
 };
 
 function reducer(state = { count: 0 }, action) {
 
     switch (action.type) {
         case 'CHANGE_COUNT':
-        return {
-            count: state.count + action.payload
-        }
+            return {
+                count: state.count + action.payload
+            }
         case 'INCREMENT':
             return {
                 count: state.count + 1
@@ -71,7 +100,33 @@ function reducer(state = { count: 0 }, action) {
         case 'ADD_FAVIE_THING':
             return {
                 ...state,
-                favieThings : [...state.favieThings, action.payload]
+                favieThings: [...state.favieThings, action.payload]
+            }
+        case 'REMOVE_FAVIE_THING': {
+            const newThings = state.favieThings.filter(thing => thing !== action.payload)
+            return {
+                ...state,
+                favieThings: [...state.favieThings, newThings]
+            }
+        }
+        case 'ADD_YOUTUBE_TITLE':
+            return {
+                ...state,
+                youtubeVideo: {
+                    ...state.youtubeVideo,
+                    title: action.payload
+                }
+            }
+        case 'UP_YOUTUBE_COUNT':
+            return {
+                ...state,
+                youtubeVideo: {
+                    ...state.youtubeVideo,
+                    votes: {
+                        ...state.youtubeVideo.votes,
+                        up: state.youtubeVideo.votes.up + action.payload
+                    }
+                }
             }    
         default:
             return state
