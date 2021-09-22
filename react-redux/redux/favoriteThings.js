@@ -27,3 +27,8 @@ function favieThingsReducer(favieThings = [], action) {
     }
 }
 
+export {
+    addFavieThing,
+    removeFavieThing,
+    favieThingsReducer
+};

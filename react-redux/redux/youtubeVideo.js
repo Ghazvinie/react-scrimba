@@ -53,3 +53,10 @@ function youtubeReducer(youtubeVideo = youtubeInitialState, action) {
             };
     }
 }
+
+export {
+    addYoutubeTitle,
+    upvoteCount,
+    downvoteCount,
+    youtubeReducer
+};

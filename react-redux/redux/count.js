@@ -13,3 +13,5 @@ function countReducer(count = 0, action) {
             return count;
     }
 }
+
+export { changeCount, countReducer };
