@@ -26,41 +26,6 @@ function halve() {
     };
 }
 
-function changeCount(amount) {
-    return {
-        type: 'CHANGE_COUNT',
-        payload: amount
-    };
-}
-
-function addFavieThing(thing) {
-    return {
-        type: 'ADD_FAVIE_THING',
-        payload: thing
-    };
-}
-
-function removeFavieThing(thing) {
-    return {
-        type: 'REMOVE_FAVIE_THING',
-        payload: thing
-    };
-}
-
-function addYoutubeTitle(title) {
-    return {
-        type: 'ADD_YOUTUBE_TITLE',
-        payload: title
-    };
-}
-
-function upYoutubeCount(num) {
-    return {
-        type: 'UP_YOUTUBE_COUNT',
-        payload: num
-    };
-}
-
 const initialState = {
     count: 0,
     favoriteThings: [],
