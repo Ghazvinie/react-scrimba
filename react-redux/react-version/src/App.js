@@ -1,10 +1,22 @@
 import React from "react";
+import { connect } from 'react-redux';
 
-const App = () => (
+function App(props) {
+    return (
+        <div>
+            <h1>{props.test}</h1>
+            <button>-</button>
+            <button>+</button>
+        </div>
+    );
+}
 
-    <div>
-        HI
-    </div>
-)
+function mapStateToProps(globalState){
+    return {
+        test: 'hello'
+    };
+}
 
-export default App;
+const connectedRedux = connect(mapStateToProps, {})(App)
+
+export default connectedRedux
