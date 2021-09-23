@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 import App from './App'
+import store from './redux/index';
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store} >
+    <App />
+  </Provider>
+  ,
   document.getElementById('root'),
 );
-
-reportWebVitals();
