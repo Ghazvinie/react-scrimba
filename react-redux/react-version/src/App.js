@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 function App(props) {
     return (
         <div>
-            <h1>{props.test}</h1>
+            <h1>{props.count}</h1>
             <button>-</button>
             <button>+</button>
         </div>
@@ -13,7 +13,7 @@ function App(props) {
 
 function mapStateToProps(globalState){
     return {
-        test: 'hello'
+        count: globalState.count
     };
 }
 

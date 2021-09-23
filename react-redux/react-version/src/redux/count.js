@@ -13,18 +13,18 @@ function decrement(num) {
 }
 
 
-function countReducer(state = { count: 0 }, action) {
+function countReducer(count = 0, action) {
     switch (action.type) {
         case 'INCREMENT':
             return {
-                count: state.count + action.payload
+                count: count + action.payload
             };
         case 'DECREMENT':
             return {
-                count: state.count - action.payload
+                count: count - action.payload
             };
         default:
-            return state;
+            return count;
     }
 }
 
