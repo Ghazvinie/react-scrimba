@@ -5,6 +5,12 @@ function setUserDetails(detail){
     };
 }
 
+function removeUserDetails(){
+    return {
+        type: 'REMOVE_USER'
+    }
+}
+
 const initialUserState = {
     firstName: '',
     lastName: '',
@@ -15,7 +21,12 @@ const initialUserState = {
 function userReducer(state = initialUserState, action){
     switch (action.type) {
         case 'SET_USER_DETAILS':
-            return state            
+            return {
+                ...state,
+                ...action.payload,
+            }
+        case 'REMOVE_USER' :
+            return {}         
         default:
             return state
     }

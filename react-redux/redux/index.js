@@ -4,10 +4,10 @@ const { combineReducers, createStore } = redux;
 import { youtubeReducer } from './youtubeVideo';
 import { countReducer } from './count';
 import { favieThingsReducer } from './favoriteThings';
-import {userReducer} from './user';
+import { userReducer } from './user';
 
 const rootReducer = combineReducers({
-    count : countReducer,
+    count: countReducer,
     favieThings: favieThingsReducer,
     youtubeVideo: youtubeReducer,
     user: userReducer
