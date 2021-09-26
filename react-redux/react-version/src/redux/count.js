@@ -1,14 +1,13 @@
 function increment(num) {
     return {
         type: 'INCREMENT',
-        payload: num
     };
 }
 
 function decrement(num) {
     return {
         type: 'DECREMENT',
-        payload: num
+
     };
 }
 
@@ -16,13 +15,9 @@ function decrement(num) {
 function countReducer(count = 0, action) {
     switch (action.type) {
         case 'INCREMENT':
-            return {
-                count: count + action.payload
-            };
+            return count + 1;
         case 'DECREMENT':
-            return {
-                count: count - action.payload
-            };
+            return count - 1;
         default:
             return count;
     }
