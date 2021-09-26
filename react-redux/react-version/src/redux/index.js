@@ -1,11 +1,13 @@
-import redux, { createStore, combineReducers } from 'redux';
-import { countReducer, increment } from './count';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import { countReducer } from './count';
 
 const rootReducer = combineReducers({
     count: countReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => {
     console.log(store.getState());
 });

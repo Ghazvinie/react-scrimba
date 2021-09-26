@@ -1,28 +1,36 @@
 import React from "react";
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from './redux/count';
 
 function App(props) {
+    const count = useSelector(state => state.count);
+    const dispatch = useDispatch();
     return (
         <div>
-            <h1>{props.count}</h1>
-            <button onClick={props.decrement}>-</button>
-            <button onClick={props.increment}>+</button>
+            <h1>{count}</h1>
+            <button onClick={() => dispatch(decrement())}>-</button>
+            <button onClick={() => dispatch(increment())}>+</button>
         </div>
     );
 }
 
-function mapStateToProps(globalState) {
-    return {
-        count: globalState.count
-    };
-}
+// function mapStateToProps(globalState) {
+//     return {
+//         count: globalState.count
+//     };
+// }
 
-const mapDispatchToProps = {
-    increment,
-    decrement
-};
+// const mapDispatchToProps = {
+//     increment,
+//     decrement
+// };
 
-const connectedRedux = connect(mapStateToProps, mapDispatchToProps)(App)
+// const connectedRedux = connect(mapStateToProps, mapDispatchToProps)(App)
 
-export default connectedRedux
+// export default connectedRedux
+
+
+
+
+
+export default App;

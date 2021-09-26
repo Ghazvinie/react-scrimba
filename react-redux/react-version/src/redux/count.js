@@ -1,6 +1,13 @@
-function increment(num) {
-    return {
-        type: 'INCREMENT',
+// function increment(num) {
+//     return {
+//         type: 'INCREMENT',
+//     };
+// }
+
+function increment() {
+    return (dispatch, setState) => {
+        const currentState = setState();
+        currentState % 2 === 0 ? dispatch({ type: 'INCREMENT' }) : dispatch({ type: 'DECREMENT' });
     };
 }
 
