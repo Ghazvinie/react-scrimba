@@ -6,8 +6,8 @@ function App(props) {
     return (
         <div>
             <h1>{props.count}</h1>
-            <button onClick={props.countDec}>-</button>
-            <button onClick={props.countInc}>+</button>
+            <button onClick={props.decrement}>-</button>
+            <button onClick={props.increment}>+</button>
         </div>
     );
 }
@@ -19,8 +19,8 @@ function mapStateToProps(globalState) {
 }
 
 const mapDispatchToProps = {
-    countInc: increment,
-    countDec: decrement
+    increment,
+    decrement
 };
 
 const connectedRedux = connect(mapStateToProps, mapDispatchToProps)(App)
